@@ -1,0 +1,2 @@
+class Parcour < ApplicationRecord
+end
