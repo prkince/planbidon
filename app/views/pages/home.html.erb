@@ -6,28 +6,23 @@
 	<div class="cards-prk">
 		<% @parcours.each do |parcour| %>
 			<%= link_to(parcour_path(parcour)) do %>
-				<div class="card-category-prk" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= parcour.photo_url %>)">
-					<div id="card-details">
-						<%= parcour.titre %>
+				<div class="cardFront">
+					<div class="card-category-prk" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= parcour.photo_url %>)">
+						<div id="card-details">
+							<%= parcour.titre %>
+						</div>
 					</div>
 				</div>
 			<% end %>
-
-			<%= link_to(parcour_path(parcour)) do %>
-				<div class="card-category-prk" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= parcour.photo_url_two %>)">
-					<div id="card-details">
-						<p>Distance: <%= parcour.distance %> kilometres</p>
-						<p>Durée: <%= parcour.duree %></p>
-						<p>Denivele: <%= parcour.denivele %></p>
-						<p>Type: <%= parcour.difficulte %></p>
-					</div>
-				</div>
-			<% end %>
-
-			<%= link_to(parcour_path(parcour)) do %>
-				<div class="card-category-prk" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= parcour.photo_url_three %>)">
-					<div id="card-details">
-						En voir plus
+			<% link_to(parcour_path(parcour)) do %>
+				<div class="cardBack">
+					<div class="card-category-prk" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= parcour.photo_url_two %>)">
+						<div id="card-details">
+							<p>Distance: <%= parcour.distance %> kilometres</p>
+							<p>Durée: <%= parcour.duree %></p>
+							<p>Denivele: <%= parcour.denivele %></p>
+							<p>Type: <%= parcour.difficulte %></p>
+						</div>
 					</div>
 				</div>
 			<% end %>
