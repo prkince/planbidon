@@ -1,7 +1,6 @@
 <div>
 	<%= cl_image_tag("https://res.cloudinary.com/dovu27lye/image/upload/v1584018580/planbidon/bandeau_pv8ge8.jpg", id: 'img_accueil') %>
 </div>
-<div id='results'></div>
 <div id="parcours">
 	<div class="cards-prk">
 		<% @parcours.each do |parcour| %>
@@ -18,10 +17,6 @@
 				<div class="cardBack">
 					<div class="card-category-prk" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= parcour.photo_url_two %>)">
 						<div id="card-details">
-							<p>Distance: <%= parcour.distance %> kilometres</p>
-							<p>Durée: <%= parcour.duree %></p>
-							<p>Denivele: <%= parcour.denivele %></p>
-							<p>Type: <%= parcour.difficulte %></p>
 						</div>
 					</div>
 				</div>

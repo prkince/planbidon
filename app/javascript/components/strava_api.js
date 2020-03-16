@@ -1,7 +1,7 @@
 require('dotenv/config');
 const auth_link = 'https://www.strava.com/oauth/token';
 const results = document.querySelector("#results");
-
+console.log(results);
 
 // Activités Spécifiques
 
@@ -10,16 +10,14 @@ function getActivity(response){
     array.forEach(activity => {
         const activity_link = `https://www.strava.com/api/v3/activities/${activity}?access_token=${response.access_token}`
         fetch(activity_link)
-            .then((response) =>
-                response.json()
-                //console.log(response.json())
-            )
+            .then((response) => response.json())
             .then((data) => {
-                console.log(data.name)
-                const parcours = `<li class="list-inline-item">
+                let parcours = `
                 <p>${data.name}</p>
-                <p>${data.distance}</p>
-                </li>`;
+                <p>Distance: ${data.distance} metres</p>
+                <p>Durée: ${data.moving_time} secondes</p>
+                <p>Denivele: ${data.total_elevation_gain} m</p>
+                `;
                 results.insertAdjacentHTML("beforeend", parcours);
             });
     }); 
