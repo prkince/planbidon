@@ -15,3 +15,5 @@ cardOver.forEach((card) => {
 							<p>Type: <%= parcour.difficulte %></p>`;
 	});
 });
+
+import '../components/strava_api.js';
