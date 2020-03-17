@@ -3,7 +3,7 @@
 </div>
 <div id="parcours">
 	<div class="cards-prk">
-		<% @parcours.each do |parcour| %>
+<!-- 		<% @parcours.each do |parcour| %>
 			<%= link_to(parcour_path(parcour)) do %>
 				<div class="cardFront">
 					<div class="card-category-prk" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= parcour.photo_url %>)">
@@ -21,6 +21,7 @@
 					</div>
 				</div>
 			<% end %>
-		<% end %>
+		<% end %> -->
 	</div>
+	<div id='newcards' class="cards-prk"></div>
 </div>

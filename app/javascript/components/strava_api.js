@@ -1,24 +1,37 @@
 require('dotenv/config');
 const auth_link = 'https://www.strava.com/oauth/token';
 const results = document.querySelector("#results");
-console.log(results);
+let finalArr = [];
 
 // Activités Spécifiques
 
 function getActivity(response){
     array = ['3021912453', '2409058705', '2264900813', '2766037346', '2763328555']
-    array.forEach(activity => {
+    array.forEach((activity, index) => {
         const activity_link = `https://www.strava.com/api/v3/activities/${activity}?access_token=${response.access_token}`
         fetch(activity_link)
             .then((response) => response.json())
             .then((data) => {
+                console.log(data);
+                console.log(data.map.polyline);
                 let parcours = `
-                <p>${data.name}</p>
-                <p>Distance: ${data.distance} metres</p>
-                <p>Durée: ${data.moving_time} secondes</p>
-                <p>Denivele: ${data.total_elevation_gain} m</p>
+                <a href="#">
+                    <div class="cardFront">
+                        <div class="card-category-prk" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= parcour.photo_url %>)">
+                            <div id="card-details">
+                                <p>${data.name}</p>
+                                <p>Distance: ${data.distance} metres</p>
+                                <p>Durée: ${data.moving_time} secondes</p>
+                                <p>Denivele: ${data.total_elevation_gain} m</p>
+                                <p>Parcours numéro: ${index}</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
                 `;
-                results.insertAdjacentHTML("beforeend", parcours);
+                //results.insertAdjacentHTML("beforeend", parcours);
+                // mettre toutes les activités dans un array
+                finalArr.push(parcours);
             });
     }); 
 }
@@ -52,4 +65,21 @@ function reAuthorize(){
 
 reAuthorize();
 
+const newCards = document.querySelector("#newcards");
+console.log(finalArr);
+setTimeout(function() { 
+    for (let key in finalArr) {
+      newCards.insertAdjacentHTML("beforeend", finalArr[key]);
+      console.log(key, finalArr[key]);
+    }
+}, 2000);
 
+
+// const cardOver = document.querySelectorAll('.cardFront');
+
+// cardOver.forEach((card) => {
+//     card.addEventListener('mouseover', (event) => {
+//         console.log(event);
+//         event.target.innerText = `<div id="results"></div>`;
+//     });
+// });
