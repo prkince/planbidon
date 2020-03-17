@@ -13,7 +13,6 @@ function getActivity(response){
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);
-                console.log(data.map.polyline);
                 let parcours = `
                 <a href="#">
                     <div class="cardFront">
@@ -24,6 +23,11 @@ function getActivity(response){
                                 <p>Durée: ${data.moving_time} secondes</p>
                                 <p>Denivele: ${data.total_elevation_gain} m</p>
                                 <p>Parcours numéro: ${index}</p>
+                                <iframe height='405' width='590' 
+                                frameborder='0' allowtransparency='true' 
+                                scrolling='no' 
+                                src='https://www.strava.com/activities/${data.id}/embed/${data.embed_token}'>
+                                </iframe>
                             </div>
                         </div>
                     </div>
@@ -65,7 +69,7 @@ function reAuthorize(){
 
 reAuthorize();
 
-const newCards = document.querySelector("#newcards");
+const newCards = document.querySelector(".cards-prk");
 console.log(finalArr);
 setTimeout(function() { 
     for (let key in finalArr) {
