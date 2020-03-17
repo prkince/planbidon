@@ -1,28 +1,26 @@
 <div>
 	<%= cl_image_tag("https://res.cloudinary.com/dovu27lye/image/upload/v1584018580/planbidon/bandeau_pv8ge8.jpg", id: 'img_accueil') %>
 </div>
-<div id="parcours">
-		<div class="cards-prk"></div>
-<!-- 	<div class="cards-prk">
-		<% @parcours.each do |parcour| %>
-			<%= link_to(parcour_path(parcour)) do %>
-				<div class="cardFront">
-					<div class="card-category-prk" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= parcour.photo_url %>)">
-						<div id="card-details">
-							<%= parcour.titre %>
-						</div>
-					</div>
-				</div>
-			<% end %>
-			<% link_to(parcour_path(parcour)) do %>
-				<div class="cardBack">
-					<div class="card-category-prk" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= parcour.photo_url_two %>)">
-						<div id="card-details">
-						</div>
-					</div>
-				</div>
-			<% end %>
-		<% end %>
-	</div> -->
-
+<div id="cardsPrk">
 </div>
+<!-- 	<div class="cards-prk">
+			<% @parcours.each do |parcour| %>
+				<%= link_to(parcour_path(parcour)) do %>
+					<div class="cardFront">
+						<div class="card-category-prk" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= parcour.photo_url %>)">
+							<div id="card-details">
+								<%= parcour.titre %>
+							</div>
+						</div>
+					</div>
+				<% end %>
+				<% link_to(parcour_path(parcour)) do %>
+					<div class="cardBack">
+						<div class="card-category-prk" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= parcour.photo_url_two %>)">
+							<div id="card-details">
+							</div>
+						</div>
+					</div>
+				<% end %>
+			<% end %>
+		</div> -->
