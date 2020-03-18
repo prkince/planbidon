@@ -6,26 +6,33 @@ let finalArr = [];
 // Activités Spécifiques
 
 function getActivity(response){
-    array = ['3021912453', '2409058705', '2264900813', '2766037346', '2763328555']
+    array = ['1652492473', '3021912453', '2409058705', '2264900813', '2766037346', '2763328555']
     array.forEach((activity, index) => {
         const activity_link = `https://www.strava.com/api/v3/activities/${activity}?access_token=${response.access_token}`
         fetch(activity_link)
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);
+                const km = (data.distance *  0.001).toFixed(2);
+                const measuredTime = new Date(null);
+                measuredTime.setSeconds(data.moving_time)
+                const MHSTime = measuredTime.toISOString().substr(11, 5);           
                 let parcours = `
                         <div class="card-category-prk-2">
-                            <div class="card-details">
-                                <p>${data.name}</p>
-                                <p>Distance: ${data.distance} metres</p>
-                                <p>Durée: ${data.moving_time} secondes</p>
-                                <p>Denivele: ${data.total_elevation_gain} m</p>
-                                <p>Parcours numéro: ${index}</p>
+                            <div class="cards-details">
+                                <div class="cards-headers">
+                                    <p>${data.name}</p>
+                                    <p>Distance: ${km} km</p>
+                                    <p>Durée: ${MHSTime} h </p>
+                                    <p>Denivele: ${Math.round(data.total_elevation_gain)} m</p>
+                                    <p>Parcours numéro: INDEX ${index}</p>
+                                </div>
                                 <iframe height='405' width='590' 
                                 frameborder='0' allowtransparency='true' 
                                 scrolling='no' 
                                 src='https://www.strava.com/activities/${data.id}/embed/${data.embed_token}'>
                                 </iframe>
+                                <div class="cards-footers"></div>
                             </div>
                         </div>
                 `;

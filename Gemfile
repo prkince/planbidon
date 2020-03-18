@@ -19,7 +19,6 @@ gem 'cloudinary'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
-  gem 'dotenv-rails'
 end
 
 group :development, :test do

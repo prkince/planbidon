@@ -1,3 +1,5 @@
+// ne fonctionne pas
+
 #cardsPrk {
   margin: 2rem;
   color: blue;
@@ -6,21 +8,38 @@
   height: 1200px;
   grid-gap: 3rem;
 }
-  .card-category-prk-2 {
-    background-size: cover;
-    background-position: center;
+
+.card-category-prk-2 {
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  .cards-details {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    .card-details{
+    flex-direction: column;
+    padding: 1rem;
+    background: white;
+    .cards-headers {
+      margin-bottom: -94px;
+      z-index: 3;
+      background: white;
+      padding-left: 10px;
+      border-bottom: 0.02px solid #DEDED0;
+      align-items: center;
       display: flex;
       flex-direction: column;
-      padding: 1rem;
-
     }
+    .cards-footers {
+      margin-top: -33px;
+      background: white;
+      border-top: 0.02px solid #DEDED0;
+      height: 28px;
+      z-index: 3;
+    }
+  }
   }
