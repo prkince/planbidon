@@ -4,7 +4,14 @@
   color: blue;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 1200px;
+  grid-gap: 1rem;
+}
+
+#cardsGA {
+  margin: 2rem;
+  color: blue;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
 }
 

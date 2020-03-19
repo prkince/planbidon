@@ -1,23 +1,23 @@
 require('dotenv/config');
 const auth_link = 'https://www.strava.com/oauth/token';
 //const results = document.querySelector("#results");
-let finalArr = [];
+let finalArrGa = [];
 
 // Activités Spécifiques
 
 function getActivity(response){
-    let array = ['3021912453', '2409058705', '2264900813', '2766037346', '2763328555']
-    array.forEach((activity, index) => {
-        const activity_link = `https://www.strava.com/api/v3/activities/${activity}?access_token=${response.access_token}`
-        fetch(activity_link)
+    let arrayTwo = ['2356262757', '2354166691', '2409064894', '1767601829', '1899780707'];
+    arrayTwo.forEach((activity, index) => {
+        const activityLinkGa = `https://www.strava.com/api/v3/activities/${activity}?access_token=${response.access_token}`
+        fetch(activityLinkGa)
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);
                 const km = (data.distance *  0.001).toFixed(2);
-                const measuredTime = new Date(null);
-                measuredTime.setSeconds(data.moving_time)
-                const MHSTime = measuredTime.toISOString().substr(11, 5);
-                let parcours = `
+                let measuredTime = new Date(null);
+                measuredTime.setSeconds(data.moving_time);
+                let MHSTime = measuredTime.toISOString().substr(11, 5);
+                let parcoursGa = `
                     <div class="card-category-prk-2">
                         <div class="cards-details">
                             <div class="cards-headers">
@@ -38,11 +38,10 @@ function getActivity(response){
                 `;
                 //results.insertAdjacentHTML("beforeend", parcours);
                 // mettre toutes les activités dans un array
-                finalArr.push(parcours);
+                finalArrGa.push(parcoursGa);
             });
     }); 
 }
-
 
 // Toutes mes activitées
 // function getActivities(res){
@@ -61,9 +60,9 @@ function reAuthorize(){
 
         body: JSON.stringify({
 
-            client_id: process.env.CLIENT_ID,
-            client_secret: process.env.CLIENT_SECRET,
-            refresh_token: process.env.REFRESH_TOKEN,
+            client_id: process.env.CLIENT_ID_GA,
+            client_secret: process.env.CLIENT_SECRET_GA,
+            refresh_token: process.env.REFRESH_TOKEN_GA,
             grant_type: 'refresh_token'
         })
     }).then((response) => response.json())
@@ -72,12 +71,12 @@ function reAuthorize(){
 
 reAuthorize();
 
-const newCards = document.querySelector("#cardsPrk");
+const newCardsGa = document.querySelector("#cardsGA");
 //console.log(finalArr);
 setTimeout(function() { 
-    for (let key in finalArr) {
-      newCards.insertAdjacentHTML("beforeend", finalArr[key]);
-      //console.log(key, finalArr[key]);
+    for (let key in finalArrGa) {
+      newCardsGa.insertAdjacentHTML("beforeend", finalArrGa[key]);
+      //console.log(key, finalArrGa[key]);
     }
 }, 2000);
 
