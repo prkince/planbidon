@@ -13,8 +13,3 @@ class PagesController < ApplicationController
   	end
   end
 end
-
-
-m = Parcour.where(:id => 10).first
-m.strava_id = "1916224586"
-m.save

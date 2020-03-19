@@ -21,7 +21,7 @@ a.forEach((id) => {
 
 function getActivity(response){
     // rajouter des parcours en plus
-    array.push('2356262757', '2354166691', '2409064894', '1767601829', '1899780707');
+    array.push('2356262757', '2354166691', '1767601829', '1899780707');
     array.forEach((activity) => {
         const activityLinkGa = `https://www.strava.com/api/v3/activities/${activity}?access_token=${response.access_token}`
         fetch(activityLinkGa)
