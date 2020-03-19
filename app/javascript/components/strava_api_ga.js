@@ -5,9 +5,24 @@ let finalArrGa = [];
 
 // Activités Spécifiques
 
+// Récupérer les ID strava pour Ga dans la DB et les rajouter à un array
+const stravaIds = document.querySelector(".strava_ids_ga");
+
+let a = stravaIds.innerText;
+a = a.replace(/'/g, '"');
+a = JSON.parse(a);
+        console.log(a);
+let array = [];
+a.forEach((id) => {
+    if (id.length > 1) {
+        array.push(id)
+    }
+});
+
 function getActivity(response){
-    let arrayTwo = ['2356262757', '2354166691', '2409064894', '1767601829', '1899780707'];
-    arrayTwo.forEach((activity, index) => {
+    // rajouter des parcours en plus
+    array.push('2356262757', '2354166691', '2409064894', '1767601829', '1899780707');
+    array.forEach((activity, index) => {
         const activityLinkGa = `https://www.strava.com/api/v3/activities/${activity}?access_token=${response.access_token}`
         fetch(activityLinkGa)
             .then((response) => response.json())

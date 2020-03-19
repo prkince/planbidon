@@ -1,12 +1,26 @@
 <div>
 	<%= cl_image_tag("https://res.cloudinary.com/dovu27lye/image/upload/v1584018580/planbidon/bandeau_pv8ge8.jpg", id: 'img_accueil') %>
 </div>
+
+
+<div class="strava_ids_prk"><%= @parcours_strava_id_prk %></div> 
+<div class="strava_ids_ga"><%= @parcours_strava_id_ga %></div> 
+
+<div id="cardsPrk">
+	<% @parcours.each do |parcour| %>
+		<%= link_to(parcour_path(parcour)) do %>
+			<div class="card-category-prk-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= parcour.photo_url %>)">
+				<div id="card-details">
+					<%= parcour.titre %>
+				</div>
+			</div>
+		<% end %>
+	<% end %>
+</div>
+
+
 <div id="cardsGA">
 </div>
 
 <div id="cardsPrk">
 </div>
-
-
-<!-- test home sur parcours/index
- -->

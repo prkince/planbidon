@@ -5,14 +5,28 @@ let finalArr = [];
 
 // Activités Spécifiques
 
+// Récupérer les ID strava pour Prk dans la DB et les rajouter à un array
+const stravaIds = document.querySelector(".strava_ids_prk");
+
+let a = stravaIds.innerText;
+a = a.replace(/'/g, '"');
+a = JSON.parse(a);
+let array = [];
+a.forEach((id) => {
+    if (id.length > 1) {
+        array.push(id)
+    }
+});
+
 function getActivity(response){
-    let array = ['3021912453', '2409058705', '2264900813', '2766037346', '2763328555']
+    // rajouter des parcours en plus
+    array.push('3021912453', '2409058705', '2264900813', '2766037346', '2763328555');
     array.forEach((activity, index) => {
         const activity_link = `https://www.strava.com/api/v3/activities/${activity}?access_token=${response.access_token}`
         fetch(activity_link)
             .then((response) => response.json())
             .then((data) => {
-                console.log(data);
+                console.log(data.athlete.id);
                 const km = (data.distance *  0.001).toFixed(2);
                 const measuredTime = new Date(null);
                 measuredTime.setSeconds(data.moving_time)
