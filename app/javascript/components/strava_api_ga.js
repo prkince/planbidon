@@ -11,7 +11,6 @@ const stravaIds = document.querySelector(".strava_ids_ga");
 let a = stravaIds.innerText;
 a = a.replace(/'/g, '"');
 a = JSON.parse(a);
-        console.log(a);
 let array = [];
 a.forEach((id) => {
     if (id.length > 1) {
@@ -27,7 +26,7 @@ function getActivity(response){
         fetch(activityLinkGa)
             .then((response) => response.json())
             .then((data) => {
-                console.log(data);
+                //console.log(data);
                 const km = (data.distance *  0.001).toFixed(2);
                 let measuredTime = new Date(null);
                 measuredTime.setSeconds(data.moving_time);

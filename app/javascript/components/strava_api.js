@@ -26,7 +26,7 @@ function getActivity(response){
         fetch(activity_link)
             .then((response) => response.json())
             .then((data) => {
-                console.log(data);
+                //console.log(data);
                 const km = (data.distance *  0.001).toFixed(2);
                 const measuredTime = new Date(null);
                 measuredTime.setSeconds(data.moving_time)
