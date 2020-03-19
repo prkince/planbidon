@@ -20,17 +20,18 @@ a.forEach((id) => {
 
 function getActivity(response){
     // rajouter des parcours en plus
-    array.push('3021912453', '2409058705', '2264900813', '2766037346', '2763328555');
-    array.forEach((activity, index) => {
+    array.push('2409058705', '2264900813', '2766037346', '2763328555');
+    array.forEach((activity) => {
         const activity_link = `https://www.strava.com/api/v3/activities/${activity}?access_token=${response.access_token}`
         fetch(activity_link)
             .then((response) => response.json())
             .then((data) => {
-                console.log(data.athlete.id);
+                console.log(data);
                 const km = (data.distance *  0.001).toFixed(2);
                 const measuredTime = new Date(null);
                 measuredTime.setSeconds(data.moving_time)
                 const MHSTime = measuredTime.toISOString().substr(11, 5);
+                let encodedRoutes = [];
                 let parcours = `
                     <div class="card-category-prk-2">
                         <div class="cards-details">
@@ -39,20 +40,47 @@ function getActivity(response){
                                 <p>Distance: ${km} km</p>
                                 <p>Durée: ${MHSTime} h </p>
                                 <p>Denivele: ${Math.round(data.total_elevation_gain)} m</p>
-                                <p>Parcours numéro: ${index}</p>
                             </div>
-                            <iframe height='405' width='590' 
-                            frameborder='0' allowtransparency='true' 
-                            scrolling='no' 
-                            src='https://www.strava.com/activities/${data.id}/embed/${data.embed_token}'>
-                            </iframe>
-                            <div class="cards-footers"></div>
+                            <div id="map${data.id}" style="width: 590px; height: 400px"></div>
                         </div>
                     </div>
                 `;
+
+                // Strava embed
+                // <iframe height='405' width='590' 
+                // frameborder='0' allowtransparency='true' 
+                // scrolling='no' 
+                // src='https://www.strava.com/activities/${data.id}/embed/${data.embed_token}'>
+                // </iframe>
+                //<div class="cards-footers"></div>
+                
                 //results.insertAdjacentHTML("beforeend", parcours);
                 // mettre toutes les activités dans un array
                 finalArr.push(parcours);
+                encodedRoutes.push(data.map.polyline);
+
+                // map leafleat
+                setTimeout(function() {
+                let map = L.map(`map${data.id}`).fitBounds(L.Polyline.fromEncoded(data.map.polyline).getLatLngs());
+                L.tileLayer(
+                    'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        maxZoom: 18,
+                    }).addTo(map);
+
+                for (let encoded of encodedRoutes) {
+                  var coordinates = L.Polyline.fromEncoded(encoded).getLatLngs();
+
+                  L.polyline(
+                      coordinates,
+                      {
+                          color: 'blue',
+                          weight: 2,
+                          opacity: .7,
+                          lineJoin: 'round'
+                      }
+                  ).addTo(map);
+                }
+                }, 3000);
             });
     }); 
 }
@@ -94,6 +122,7 @@ setTimeout(function() {
       //console.log(key, finalArr[key]);
     }
 }, 2000);
+
 
 
 // const cardOver = document.querySelectorAll('.cardFront');

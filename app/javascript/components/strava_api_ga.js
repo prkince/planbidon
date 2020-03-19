@@ -22,7 +22,7 @@ a.forEach((id) => {
 function getActivity(response){
     // rajouter des parcours en plus
     array.push('2356262757', '2354166691', '2409064894', '1767601829', '1899780707');
-    array.forEach((activity, index) => {
+    array.forEach((activity) => {
         const activityLinkGa = `https://www.strava.com/api/v3/activities/${activity}?access_token=${response.access_token}`
         fetch(activityLinkGa)
             .then((response) => response.json())
@@ -32,6 +32,7 @@ function getActivity(response){
                 let measuredTime = new Date(null);
                 measuredTime.setSeconds(data.moving_time);
                 let MHSTime = measuredTime.toISOString().substr(11, 5);
+                let encodedRoutes = [];
                 let parcoursGa = `
                     <div class="card-category-prk-2">
                         <div class="cards-details">
@@ -40,20 +41,47 @@ function getActivity(response){
                                 <p>Distance: ${km} km</p>
                                 <p>Durée: ${MHSTime} h </p>
                                 <p>Denivele: ${Math.round(data.total_elevation_gain)} m</p>
-                                <p>Parcours numéro: ${index}</p>
                             </div>
-                            <iframe height='405' width='590' 
-                            frameborder='0' allowtransparency='true' 
-                            scrolling='no' 
-                            src='https://www.strava.com/activities/${data.id}/embed/${data.embed_token}'>
-                            </iframe>
-                            <div class="cards-footers"></div>
+                            <div id="map${data.id}" style="width: 590px; height: 400px"></div>
                         </div>
                     </div>
                 `;
+                // Strava embed
+                // <iframe height='405' width='590' 
+                // frameborder='0' allowtransparency='true' 
+                // scrolling='no' 
+                // src='https://www.strava.com/activities/${data.id}/embed/${data.embed_token}'>
+                // </iframe>
+                //<div class="cards-footers"></div>
+
+
                 //results.insertAdjacentHTML("beforeend", parcours);
                 // mettre toutes les activités dans un array
                 finalArrGa.push(parcoursGa);
+                encodedRoutes.push(data.map.polyline);
+                
+                // map leafleat
+                setTimeout(function() {
+                let map = L.map(`map${data.id}`).fitBounds(L.Polyline.fromEncoded(data.map.polyline).getLatLngs());
+                L.tileLayer(
+                    'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        maxZoom: 18,
+                    }).addTo(map);
+
+                for (let encoded of encodedRoutes) {
+                  var coordinates = L.Polyline.fromEncoded(encoded).getLatLngs();
+
+                  L.polyline(
+                      coordinates,
+                      {
+                          color: 'blue',
+                          weight: 2,
+                          opacity: .7,
+                          lineJoin: 'round'
+                      }
+                  ).addTo(map);
+                }
+                }, 3000);
             });
     }); 
 }
