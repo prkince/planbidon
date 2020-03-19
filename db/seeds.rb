@@ -34,7 +34,7 @@ Parcour.create!(
 	photo_url_two: 'https://res.cloudinary.com/dovu27lye/image/upload/v1584021025/planbidon/road_bike_3_bbq4go.jpg',
 	photo_url_three: 'https://res.cloudinary.com/dovu27lye/image/upload/v1584021025/planbidon/road_bike_5_cbqsdk.jpg',
 	description: "Bières belges, quart de Sauvage et Suze !",
-	strava_id: "2")
+	strava_id: "2409064894")
 
 Parcour.create!(
 	titre: 'De vent et de faux plats', 
