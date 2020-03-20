@@ -14,7 +14,7 @@ let arrayPrk = [];
 //arrayPrk.push('2409058705', '2264900813', '2766037346', '2763328555');
 
 const stravaIdsPrk = document.querySelector(".strava_ids_prk");
-getIds(stravaIdsPrk, arrayPrk);
+getStravaIds(stravaIdsPrk, arrayPrk);
 reAuthorize(prkCredentials, arrayPrk);
 
 // Load ga details
@@ -23,11 +23,12 @@ let arrayGa = [];
 //arrayGa.push('2356262757', '2354166691', '1767601829', '1899780707');
 
 const stravaIdsGa = document.querySelector(".strava_ids_ga");
-getIds(stravaIdsGa, arrayGa);
+getStravaIds(stravaIdsGa, arrayGa);
 reAuthorize(gaCredentials, arrayGa);
 
 const newCards = document.querySelector("#cardsPrk");
 setTimeout(function() { 
+    console.log(finalArr);
     for (let key in finalArr) {
       newCards.insertAdjacentHTML("beforeend", finalArr[key]);
     }
@@ -53,7 +54,7 @@ function reAuthorize(credentials, array){
 }
 
 // Get each strava Ids from DB and put it into an array 
-function getIds(ids, array){
+function getStravaIds(ids, array){
     let a = ids.innerText;
     a = a.replace(/'/g, '"');
     a = JSON.parse(a);
@@ -66,7 +67,7 @@ function getIds(ids, array){
 
 // Get each activity based on strava_id
 function getActivity(response, array){
-    array.forEach((activity) => {
+    array.forEach((activity, index) => {
         const activity_link = `https://www.strava.com/api/v3/activities/${activity}?access_token=${response.access_token}`
         fetch(activity_link)
             .then((response) => response.json())
@@ -86,7 +87,7 @@ function getActivity(response, array){
                                 <p>Durée: ${MHSTime} h </p>
                                 <p>Denivele: ${Math.round(data.total_elevation_gain)} m</p>
                             </div>
-                            <div id="map${data.id}" style="width: 590px; height: 400px"></div>
+                            <div id="map${data.id}" class='mapStrava'></div>
                         </div>
                     </div>
                 `;
@@ -95,27 +96,38 @@ function getActivity(response, array){
 
                 // map leafleat
                 setTimeout(function() {
-                let map = L.map(`map${data.id}`).fitBounds(L.Polyline.fromEncoded(data.map.polyline).getLatLngs());
-                L.tileLayer(
-                    'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        maxZoom: 18,
-                    }).addTo(map);
+                    let map = L.map(`map${data.id}`).fitBounds(L.Polyline.fromEncoded(data.map.polyline).getLatLngs());
+                    L.tileLayer(
+                        'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            maxZoom: 18,
+                        }).addTo(map);
 
-                for (let encoded of encodedRoutes) {
-                  var coordinates = L.Polyline.fromEncoded(encoded).getLatLngs();
+                    for (let encoded of encodedRoutes) {
+                      var coordinates = L.Polyline.fromEncoded(encoded).getLatLngs();
 
-                  L.polyline(
-                      coordinates,
-                      {
-                          color: 'blue',
-                          weight: 2,
-                          opacity: .7,
-                          lineJoin: 'round'
-                      }
-                  ).addTo(map);
-                }
-                }, 3000);
+                      L.polyline(
+                          coordinates,
+                          {
+                              color: 'blue',
+                              weight: 2,
+                              opacity: .7,
+                              lineJoin: 'round'
+                          }
+                      ).addTo(map);
+                    }
+                }, 2000);
             });
     }); 
 }
 
+let arrayIds = [];
+const ids = document.querySelector(".ids");
+getIds(ids, arrayIds);
+function getIds(ids, array){
+    let a = ids.innerText;
+    a = a.replace(/'/g, '"');
+    a = JSON.parse(a);
+    a.forEach((id) => {
+            array.push(id)
+    });
+}

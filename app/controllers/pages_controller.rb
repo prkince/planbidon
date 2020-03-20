@@ -3,13 +3,25 @@ class PagesController < ApplicationController
 
   def home
   	@parcours = Parcour.all
+
   	@parcours_strava_id_prk = []
     @parcours_strava_id_ga = []
     @parcours.each do |parcour|
-      if parcour.athlete_id == '40594550'
-  		 @parcours_strava_id_prk << parcour.strava_id
-      else @parcours_strava_id_ga << parcour.strava_id
-      end
+      parcour.athlete_id == '40594550' ? @parcours_strava_id_prk << parcour.strava_id : @parcours_strava_id_ga << parcour.strava_id
   	end
+
+    @parcours_id = []
+
+    @parcours.each do |parcour|
+      if parcour.athlete_id == '40594550' 
+        @parcours_id << parcour.id
+      end 
+    end
+    @parcours.each do |parcour|
+      if parcour.athlete_id != '40594550' 
+        @parcours_id << parcour.id
+      end 
+    end
+
   end
 end

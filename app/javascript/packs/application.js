@@ -4,5 +4,5 @@ require("channels")
 
 import "bootstrap";
 
-//import '../components/strava_api.js';
+//import '../components/strava_api.js'; App test
 import '../components/strava.js';

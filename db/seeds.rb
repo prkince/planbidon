@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 puts 'Cleaning database...'
 Parcour.destroy_all
 
@@ -49,7 +41,7 @@ Parcour.create!(
 	photo_url_two: 'https://res.cloudinary.com/dovu27lye/image/upload/v1584025081/planbidon/road_bike_10_llaml7.jpg',
 	photo_url_three: 'https://res.cloudinary.com/dovu27lye/image/upload/v1584025080/planbidon/road_bike_9_q83oht.jpg',
 	description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis amet quia consectetur rem eaque sunt modi, ipsam fugiat? At nisi eum tempora deserunt laudantium natus nihil id laboriosam. Molestiae, nihil.",
-	strava_id: "3",
+	strava_id: "1652492473",
 	athlete_id: "28847458"
 
 )
