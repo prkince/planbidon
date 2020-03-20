@@ -26,10 +26,27 @@ const stravaIdsGa = document.querySelector(".strava_ids_ga");
 getStravaIds(stravaIdsGa, arrayGa);
 reAuthorize(gaCredentials, arrayGa);
 
+let arrayParcoursTotal = []
+const parcoursTotal = document.querySelector(".parcourstotal");
+getIds(parcoursTotal, arrayParcoursTotal);
+
+let arrayIds = [];
+const ids = document.querySelector(".ids");
+getIds(ids, arrayIds)
+
+function getIds(ids, array){
+    let a = ids.innerText;
+    a = a.replace(/'/g, '"');
+    a = JSON.parse(a);
+    a.forEach((id) => {
+            array.push(id)
+    });
+}
+
 const newCards = document.querySelector("#cardsPrk");
 setTimeout(function() { 
-    console.log(finalArr);
     for (let key in finalArr) {
+    console.log(finalArr[key]);
       newCards.insertAdjacentHTML("beforeend", finalArr[key]);
     }
 }, 2000);
@@ -72,13 +89,20 @@ function getActivity(response, array){
         fetch(activity_link)
             .then((response) => response.json())
             .then((data) => {
-                //console.log(data); => to display all available data
+                console.log(data); //=> to display all available data
                 const km = (data.distance *  0.001).toFixed(2);
                 const measuredTime = new Date(null);
                 measuredTime.setSeconds(data.moving_time)
                 const MHSTime = measuredTime.toISOString().substr(11, 5);
                 let encodedRoutes = [];
+                let answer;
+                arrayParcoursTotal.forEach((parcour, i) => {
+                    if (parseInt(parcour) === data.id){
+                        answer = arrayIds[i]
+                    }
+                })
                 let parcours = `
+                    <a href="/parcours/${answer}">
                     <div class="card-category-prk-2">
                         <div class="cards-details">
                             <div class="cards-headers">
@@ -90,10 +114,10 @@ function getActivity(response, array){
                             <div id="map${data.id}" class='mapStrava'></div>
                         </div>
                     </div>
+                    </a>
                 `;
                 finalArr.push(parcours);
                 encodedRoutes.push(data.map.polyline);
-
                 // map leafleat
                 setTimeout(function() {
                     let map = L.map(`map${data.id}`).fitBounds(L.Polyline.fromEncoded(data.map.polyline).getLatLngs());
@@ -120,14 +144,3 @@ function getActivity(response, array){
     }); 
 }
 
-let arrayIds = [];
-const ids = document.querySelector(".ids");
-getIds(ids, arrayIds);
-function getIds(ids, array){
-    let a = ids.innerText;
-    a = a.replace(/'/g, '"');
-    a = JSON.parse(a);
-    a.forEach((id) => {
-            array.push(id)
-    });
-}
