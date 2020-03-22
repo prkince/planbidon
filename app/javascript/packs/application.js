@@ -5,8 +5,5 @@ require("channels")
 import "bootstrap";
 
 //import '../components/strava_api.js'; App test
- 
 //import '../components/strava.js';
-if (document.getElementById("cardsPrk")){
-	import '../components/strava_routes.js';
-}
+import '../components/strava_routes.js';
