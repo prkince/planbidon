@@ -85,14 +85,14 @@ function getStravaIds(ids, array){
 // Get each activity based on strava_id
 function getActivity(response, array){
     array.forEach((activity, index) => {
-        const activity_link = `https://www.strava.com/api/v3/activities/${activity}?access_token=${response.access_token}`
+        const activity_link = `https://www.strava.com/api/v3/routes/${activity}?access_token=${response.access_token}`
         fetch(activity_link)
             .then((response) => response.json())
             .then((data) => {
                 console.log(data); //=> to display all available data
                 const km = (data.distance *  0.001).toFixed(2);
                 const measuredTime = new Date(null);
-                measuredTime.setSeconds(data.moving_time)
+                measuredTime.setSeconds(data.estimated_moving_time)
                 const MHSTime = measuredTime.toISOString().substr(11, 5);
                 let encodedRoutes = [];
                 let answer;
@@ -109,7 +109,7 @@ function getActivity(response, array){
                                 <p>${data.name}</p>
                                 <p>Distance: ${km} km</p>
                                 <p>Durée: ${MHSTime} h </p>
-                                <p>Denivele: ${Math.round(data.total_elevation_gain)} m</p>
+                                <p>Denivele: ${Math.round(data.elevation_gain)} m</p>
                             </div>
                             <div id="map${data.id}" class='mapStrava'></div>
                         </div>
