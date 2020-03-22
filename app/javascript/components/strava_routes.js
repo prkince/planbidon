@@ -109,7 +109,7 @@ function getActivity(response, array){
                                 <p>${data.name}</p>
                                 <p>Distance: ${km} km</p>
                                 <p>Durée: ${MHSTime} h </p>
-                                <p>Denivele: ${Math.round(data.elevation_gain)} m</p>
+                                <p>Denivelé: ${Math.round(data.elevation_gain)} m</p>
                             </div>
                             <div id="map${data.id}" class='mapStrava'></div>
                         </div>
