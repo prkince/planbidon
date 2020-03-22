@@ -134,7 +134,7 @@ function getActivity(response, array){
                           {
                               color: 'blue',
                               weight: 2,
-                              opacity: .7,
+                              opacity: .6,
                               lineJoin: 'round'
                           }
                       ).addTo(map);
