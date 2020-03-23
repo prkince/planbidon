@@ -62,10 +62,10 @@ function getActivity(response){
                 // map leafleat
                 setTimeout(function() {
                 let map = L.map(`map${data.id}`).fitBounds(L.Polyline.fromEncoded(data.map.polyline).getLatLngs());
-                L.tileLayer(
-                    'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        maxZoom: 18,
-                    }).addTo(map);
+                L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+                    attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+                    maxZoom: 16
+                }).addTo(map);
 
                 for (let encoded of encodedRoutes) {
                   var coordinates = L.Polyline.fromEncoded(encoded).getLatLngs();

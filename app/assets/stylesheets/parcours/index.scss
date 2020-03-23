@@ -7,6 +7,9 @@
 	#map{
 	    height: 400px;
 	    width: 800px;
+	    .leaflet-control-attribution {
+      		display: none
+    	}
 	}
 }
 

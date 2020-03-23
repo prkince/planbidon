@@ -71,9 +71,10 @@ const stravaAllParcours = () => {
     // Get each activity based on strava_id
     function getActivity(response, array){
         let map = L.map('map').setView([48.859489, 2.320582], 8);
-        L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
-            maxZoom: 18,
-            attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd',
+            maxZoom: 18
         }).addTo(map);
         let encodedRoutes = [];
         array.forEach((activity) => {
@@ -91,7 +92,7 @@ const stravaAllParcours = () => {
               L.polyline(
                   coordinates,
                   {
-                      color: 'black',
+                      color: 'white',
                       weight: 2,
                       opacity: .7,
                       lineJoin: 'round'

@@ -15,3 +15,6 @@ import { stravaAllParcours } from '../components/strava_all_parcours.js';
 if(document.getElementById("map")){
 	stravaAllParcours();
 }
+
+
+//import '../components/strava_show.js';
