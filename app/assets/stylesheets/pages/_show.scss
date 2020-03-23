@@ -30,14 +30,22 @@
 	}
 }
 
+#btn-home {
+	display: flex;
+    justify-content: center;
+    margin-bottom: 6rem;
+}
+
 .btn-outline-prk {
-	background-color: #ff5959;
-	color: #1a0841;
-	margin: 1rem 0rem 1rem 0rem
+	background-color: black;
+	color: white;
+	margin: 1rem 0rem 1rem 0rem;
+	width: 130px;
+	padding: 10px;
 }
 .btn-outline-prk:hover {
-	background-color: #ff5959;
-	color: #4f9da6
+	background-color: black;
+	color: grey
 }
 
 #description-show {
@@ -80,10 +88,4 @@
 		text-align: center;
 		padding: 0;
 	}
-}
-
-#btn-home {
-	display: flex;
-    justify-content: center;
-    margin-bottom: 4rem;
 }

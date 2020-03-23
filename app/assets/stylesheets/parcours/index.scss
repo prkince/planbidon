@@ -1,0 +1,48 @@
+#map_container {
+	margin: 4rem 0rem 4rem 0rem;
+	height: 100%;
+	width: 100%;
+    display: flex;
+    justify-content: center;
+	#map{
+	    height: 400px;
+	    width: 800px;
+	}
+}
+
+
+@media (max-width: 830px) {
+	#map_container {
+		#map{
+		    height: 300px;
+		    width: 400px;
+		}
+	}
+}
+
+@media (max-width: 420px) {
+	#map_container {
+		margin: 4rem 0rem 4rem 0rem;
+		#map{
+		    height: 400px;
+		    width: 300px;
+		}
+	}
+}
+
+h1 {
+	font-size: 45px;
+	display: flex;
+	justify-content: center;
+	margin: 3rem
+}
+
+@media (max-width: 400px) {
+	h1 {
+		font-size: 25px;
+		display: flex;
+		justify-content: center;
+		margin: 3rem
+	}
+
+}

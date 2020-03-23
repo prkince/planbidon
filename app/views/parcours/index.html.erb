@@ -1,3 +1,20 @@
-<h1>Parcours#index</h1>
-<p>Find me in app/views/parcours/index.html.erb</p>
+<h1> <strong> Nos parcours </strong> </h1>
 
+<div id="map_container">
+	<div id="map"></div>
+</div>
+
+<div class="strava_ids_prk" style="display: none"><%= @parcours_strava_id_prk %></div> 
+<div class="strava_ids_ga" style="display: none"><%= @parcours_strava_id_ga %></div>
+<div class="ids" style="display: none"><%= @parcours_id  %></div>
+<div class="parcourstotal" style="display: none"><%= @parcours_total  %></div>
+
+  <div id="btn-home">
+    <%= link_to "HOME", root_path, class: "btn btn-outline-prk" %>
+  </div>
+
+
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+crossorigin=""></script>
+<script type="text/javascript" src="https://rawgit.com/jieter/Leaflet.encoded/master/Polyline.encoded.js"></script>

@@ -6,6 +6,9 @@
   display: flex;
   justify-content: space-between;
   height: 45px;
+  a {
+    color: slategray
+  }
   a:hover {
     color: black;
   }
