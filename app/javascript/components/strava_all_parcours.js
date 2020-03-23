@@ -67,14 +67,14 @@ const stravaAllParcours = () => {
         });
     }
 
+
     // Get each activity based on strava_id
     function getActivity(response, array){
         let map = L.map('map').setView([48.859489, 2.320582], 8);
-        L.tileLayer(
-            'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
             maxZoom: 18,
+            attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
         }).addTo(map);
-
         let encodedRoutes = [];
         array.forEach((activity) => {
             const activity_link = `https://www.strava.com/api/v3/routes/${activity}?access_token=${response.access_token}`

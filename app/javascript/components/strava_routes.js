@@ -105,28 +105,31 @@ const stravaRoutes = () => {
                     })
                     let parcours = `
                         <a href="/parcours/${answer}" style="text-decoration: none">
-                        <div class="card-category-prk-2">
-                            <div class="cards-details">
-                                <div class="cards-headers">
-                                    <p>${data.name}</p>
-                                    <p>Distance: ${km} km</p>
-                                    <p>Durée: ${MHSTime} h </p>
-                                    <p>Denivelé: ${Math.round(data.elevation_gain)} m</p>
-                                </div>
+                            <li style="list-style-type: none;">
                                 <div id="map${data.id}" class='mapStrava'></div>
-                            </div>
-                        </div>
+                                <div class="overlay">
+                                    <div class="card-category-prk-2">
+                                        <div class="card-details">
+                                            <p>${data.name}</p>
+                                            <p>Distance: ${km} km</p>
+                                            <p>Durée: ${MHSTime} h </p>
+                                            <p>Denivelé: ${Math.round(data.elevation_gain)} m</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
                         </a>
                     `;
-                    finalArr.push(parcours);
-                    encodedRoutes.push(data.map.polyline);
                     // map leafleat
+                    encodedRoutes.push(data.map.polyline);
+                    finalArr.push(parcours);
+
                     setTimeout(function() {
                         let map = L.map(`map${data.id}`).fitBounds(L.Polyline.fromEncoded(data.map.polyline).getLatLngs());
-                        L.tileLayer(
-                            'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                                maxZoom: 18,
-                            }).addTo(map);
+                        L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
+                            maxZoom: 18,
+                            attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+                        }).addTo(map);
 
                         for (let encoded of encodedRoutes) {
                           var coordinates = L.Polyline.fromEncoded(encoded).getLatLngs();
@@ -134,7 +137,7 @@ const stravaRoutes = () => {
                           L.polyline(
                               coordinates,
                               {
-                                  color: 'black',
+                                  color: 'white',
                                   weight: 2,
                                   opacity: .6,
                                   lineJoin: 'round'
