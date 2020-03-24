@@ -2,11 +2,22 @@ require('dotenv/config');
 
 
 const stravaAllParcours = () => {
+    // Make an array of all polylines
     let arrayMapIds = [];
     const mapsIds = document.querySelector(".map_ids");
     getMapIds(mapsIds, arrayMapIds);
 
+    // Make an array of all titles
+    let arrayMapTitles = [];
+    const mapsTitles = document.querySelector(".map_title");
+    getMapIds(mapsTitles, arrayMapTitles);
 
+    // Make an array of all ids
+    let arrayIds = [];
+    const ids = document.querySelector(".ids");
+    getMapIds(ids, arrayIds);
+
+    // Make an array of all startpoints
     let arrayMapStartIds = [];
     const mapsStartIds = document.querySelector(".map_start_ids");
     getMapIds(mapsStartIds, arrayMapStartIds);
@@ -23,9 +34,7 @@ const stravaAllParcours = () => {
         a = a.replace(/'/g, '"');
         a = JSON.parse(a);
         a.forEach((id) => {
-            if (id.length > 1) {
-                array.push(id)
-            }
+            array.push(id)
         });
     }
 
@@ -35,18 +44,20 @@ const stravaAllParcours = () => {
         subdomains: 'abcd',
         maxZoom: 18
     }).addTo(map);
+
     arrayMapIds.forEach((mapId, index)=> {
         var coordinates = L.Polyline.fromEncoded(mapId).getLatLngs();
+        let colorsArray = ['#4d089a', '#323edd', '#dc2ade', '#e8f044', '#f35588', '#05dfd7', '#a3f7bf', '#ffac41', '#f76a8c', '#ffffff', '#fbcffc', '#05dfd7','#e8f044'];
+        let track_color = colorsArray[Math.floor(Math.random() * colorsArray.length)]
         L.polyline(
         coordinates,
             {
-                color: 'white',
-                weight: 2,
+                color: track_color,
+                weight: 3,
                 opacity: .7,
                 lineJoin: 'round'
             }
-        ).addTo(map);
-        L.marker(array_start_id[index]).addTo(map);       
+        ).addTo(map).bindPopup(`<a href='./parcours/${arrayIds[index]}'>${arrayMapTitles[index]}</a>`);       
     })
 }
 

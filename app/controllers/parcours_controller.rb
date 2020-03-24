@@ -6,6 +6,9 @@ class ParcoursController < ApplicationController
     @parcours = Parcour.all
     @parcours_map_id = @parcours.map { |parcour| parcour.map_id }
     @parcours_map_start_id = @parcours.map { |parcour| parcour.map_start_id }
+    @parcours_titre = @parcours.map { |parcour| parcour.titre }
+    @parcours_id = @parcours.map { |parcour| parcour.id }
+
   end
 
   def show
