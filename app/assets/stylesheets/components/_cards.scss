@@ -80,6 +80,9 @@
     .card-category-prk-2 {
       margin: 0;
       font-size: 15px;
+      p {
+         max-width: 300px;
+      }
     }
   }
 }
