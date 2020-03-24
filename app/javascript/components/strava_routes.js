@@ -91,7 +91,7 @@ const stravaRoutes = () => {
             fetch(activity_link)
                 .then((response) => response.json())
                 .then((data) => {
-                    //console.log(data); //=> to display all available data
+                    console.log(data); //=> to display all available data
                     const km = (data.distance *  0.001).toFixed(0);
                     const measuredTime = new Date(null);
                     measuredTime.setSeconds(data.estimated_moving_time)
