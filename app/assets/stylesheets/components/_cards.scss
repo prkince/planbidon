@@ -67,12 +67,16 @@
   #cardsPrk {
     grid-template-columns: 1fr;
     margin: 2rem 1rem 4rem 1rem;
-  }
-  .card-category-prk-2   .cards-details {
-    width: 300px;
-  }
-  .card-category-prk-2 .cards-details .mapStrava {
-    width: 250px;
-    height: 300px;
+    .mapStrava {
+      width: 300px;
+      height: 350px;
+    }
+    .overlay{
+      display: initial
+    }
+    .card-category-prk-2 {
+      margin: 0;
+      font-size: 15px;
+    }
   }
 }

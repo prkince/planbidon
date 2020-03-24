@@ -42,8 +42,8 @@
     <p><%= @parcour.description %></p>
   </div>
  
-<div id='strava_id_show'> <%= @parcour.strava_id  %></div>
-<div id='athlete_id_show'> <%= @parcour.athlete_id  %></div>
+<div id='strava_id_show' style="display: none"> <%= @parcour.strava_id  %></div>
+<div id='athlete_id_show' style="display: none"> <%= @parcour.athlete_id  %></div>
 
   <div id="btn-home">
     <%= link_to "ACCUEIL", root_path, class: "btn btn-outline-prk" %>
