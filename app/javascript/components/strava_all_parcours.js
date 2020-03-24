@@ -45,19 +45,18 @@ const stravaAllParcours = () => {
         maxZoom: 18
     }).addTo(map);
 
+    let colorsArray = ['#4d089a', '#323edd', '#dc2ade', '#e8f044', '#f35588', '#05dfd7', '#a3f7bf', '#ffac41', '#f76a8c', '#ffffff', '#fbcffc', '#05dfd7','#e8f044'];
     arrayMapIds.forEach((mapId, index)=> {
         var coordinates = L.Polyline.fromEncoded(mapId).getLatLngs();
-        let colorsArray = ['#4d089a', '#323edd', '#dc2ade', '#e8f044', '#f35588', '#05dfd7', '#a3f7bf', '#ffac41', '#f76a8c', '#ffffff', '#fbcffc', '#05dfd7','#e8f044'];
-        let track_color = colorsArray[Math.floor(Math.random() * colorsArray.length)]
         L.polyline(
         coordinates,
             {
-                color: track_color,
+                color: colorsArray[index],
                 weight: 3,
                 opacity: .7,
                 lineJoin: 'round'
             }
-        ).addTo(map).bindPopup(`<a href='./parcours/${arrayIds[index]}'>${arrayMapTitles[index]}</a>`);       
+        ).addTo(map).bindPopup(`<a href='./parcours/${arrayIds[index]}'>Parcours: <br>${arrayMapTitles[index]}</a>`);       
     })
 }
 

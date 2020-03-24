@@ -4,6 +4,15 @@
 	width: 100%;
     display: flex;
     justify-content: center;
+	.leaflet-container a {
+		text-decoration: none;
+		color: black;
+		text-align: center;
+    	display: flex;
+	}
+	.leaflet-container a:hover {
+		color: grey
+	}
 	#map{
 	    height: 400px;
 	    width: 800px;
