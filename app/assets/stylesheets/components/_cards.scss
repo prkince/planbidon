@@ -65,6 +65,10 @@
 
 @media (max-width: 900px) {
   #cardsPrk {
+    a {
+      display: flex;
+    flex-direction: row-reverse;
+    }
     grid-template-columns: 1fr;
     margin: 2rem 1rem 4rem 1rem;
     .mapStrava {
@@ -73,6 +77,7 @@
     }
     li {
       margin: 0;
+      width: fit-content;
     }
     .overlay{
       display: initial
