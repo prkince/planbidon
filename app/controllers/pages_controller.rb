@@ -10,7 +10,8 @@ class PagesController < ApplicationController
         titre: parcour.titre, 
         distance: parcour.distance, 
         duree: parcour.duree,
-        denivele: parcour.denivele
+        denivele: parcour.denivele,
+        map_id: parcour.map_id
       }
     }
 

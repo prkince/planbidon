@@ -6,7 +6,11 @@
 </div>
 <div id="accueilCard"></div>
 
-<div class="parcours_details" style=""><%= @parcours_details  %></div>
+<div id="btn-home">
+	<%= link_to "NOS PARCOURS", parcours_path, class: "btn btn-outline-prk" %>
+</div>
+
+<div class="parcours_details" style="display: none"><%= @parcours_details  %></div>
 
 <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
 integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
