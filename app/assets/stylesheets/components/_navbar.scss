@@ -10,3 +10,12 @@
 .navbar-prk .navbar-brand img {
   width: 40px;
 }
+
+.navbar-light .navbar-nav .nav-link {
+  color: $pb-color-three
+}
+
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: $pb-color-two
+}
