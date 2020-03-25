@@ -1,27 +1,24 @@
 .footer {
   font-color: #ff5959;
   padding: 10px 25px 10px 25px;
-  background: #D7D8D8;
-  opacity: 0.2;
+  background: rgba(232, 233, 233, 0.2);
   display: flex;
   justify-content: space-between;
   height: 45px;
   a {
-    color: slategray
+    color: rgba(228, 146, 187, 1)
   }
   a:hover {
-    color: black;
+    color: lightgrey;
+  }
+  p {
+    opacity: 0.2
   }
   position:fixed;
   bottom:0;
   left:0;
   width: 100%;
   z-index: 1001;
-}
-
-.footer-widget a {
-  color: #ff5959;
-  text-transform: capitalize;
 }
 
 @media (max-width: 1100px) { 
