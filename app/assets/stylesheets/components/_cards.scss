@@ -5,8 +5,8 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1rem;
   .mapStrava{
-    width: 350px;
-    height: 400px;
+    width: 300px;
+    height: 450px;
     align-self: center;
     margin: 1rem;
     .leaflet-top, .leaflet-control-attribution {
@@ -28,8 +28,8 @@
   li { 
     position:relative;
     display:inline-block; 
-    width:350px;
-    height:400px;
+    width:300px;
+    height:450px;
     margin: 1rem;
 
   }
@@ -39,8 +39,8 @@
   .card-category-prk-2 {
     margin: 1rem;
     padding: 1rem;
-    width: 350px;
-    height: 400px;
+    width: 300px;
+    height: 450px;
     display: flex;
     flex-direction: column;
     color: white;
@@ -57,7 +57,7 @@
   }
 }
 
-@media (min-width: 900px) and (max-width: 1300px) {
+@media (min-width: 900px) and (max-width: 1200px) {
   #cardsPrk {
     grid-template-columns: 1fr 1fr;
   }
@@ -65,10 +65,7 @@
 
 @media (max-width: 900px) {
   #cardsPrk {
-    a {
-      display: flex;
-    flex-direction: row-reverse;
-    }
+
     grid-template-columns: 1fr;
     margin: 2rem 1rem 4rem 1rem;
     .mapStrava {
@@ -77,7 +74,10 @@
     }
     li {
       margin: 0;
-      width: fit-content;
+      width: auto;
+      display: flex;
+      flex-direction: column;
+      text-align: -webkit-center;
     }
     .overlay{
       display: initial
