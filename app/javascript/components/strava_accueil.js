@@ -32,7 +32,7 @@ const stravaAccueil = () => {
     function getActivity(array){
         array.forEach((data, index) => {
             let parcours = `
-                <a href="./parcours/${data.id}" style="text-decoration: none">
+                <a href="./parcours/${data.id}" style="text-decoration: none" data-aos="zoom-in" data-aos-delay="400">
                     <li style="list-style-type: none;">
                         <div id="map${data.id}" class='mapStrava'></div>
                         <div class="overlay">
