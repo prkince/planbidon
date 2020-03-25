@@ -14,9 +14,9 @@
 		color: grey
 	}
 	#map{
-	    height: 400px;
-	    width: 800px;
-	    .leaflet-control-attribution {
+	    height: 440px;
+	    width: 900px;
+	    .leaflet-top, .leaflet-control-attribution {
       		display: none
     	}
 	}

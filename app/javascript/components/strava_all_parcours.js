@@ -52,7 +52,7 @@ const stravaAllParcours = () => {
         coordinates,
             {
                 color: colorsArray[index],
-                weight: 3,
+                weight: 4,
                 opacity: .7,
                 lineJoin: 'round'
             }
