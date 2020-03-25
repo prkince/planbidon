@@ -19,7 +19,7 @@ const stravaRoutes = () => {
     reAuthorize(prkCredentials, arrayPrk);
 
     // 3 Load ga details
-    let arrayGa = [];
+    let arrayGa = ['13403831', '13583911', '12619525'];
     // adding new maps from strava directly 
     //arrayGa.push('2356262757', '2354166691', '1767601829', '1899780707');
     const stravaIdsGa = document.querySelector(".strava_ids_ga");

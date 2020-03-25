@@ -1,49 +1,102 @@
+<div id="page-title">
+  <a href="#description-show" class="tab-underlined active" data-target="Fiche"><%= @parcour.titre %></a>
+</div>
+
 <div id="container-show">
-  <div class="container-details">
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <%= image_tag(@parcour.photo_url, width: '100%') %>
-          </div>
-          <div class="carousel-item">
-            <%= image_tag(@parcour.photo_url_two, width: '100%') %>
-          </div>
-          <div class="carousel-item">
-            <%= image_tag(@parcour.photo_url_three, width: '100%') %>
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-      <div class="col-sm-12 col-md-6 details">
-        <h1><%= @parcour.titre %></h1>
-    		<p>Distance: <%= @parcour.distance %> kilometres</p>
-    		<p>Durée: <%= @parcour.duree %></p>
-    		<p>Denivele: <%= @parcour.denivele %></p>
-    		<p>Type: <%= @parcour.difficulte %></p>        
-      </div>
+
+  <div id="title-show">
+    <a href="#description-id" class="tab-underlined active" data-target="Fiche"><h2>DESCRIPTION</h2></a>
   </div>
 
-  <div id="description-show">
-    <a href="#description-id" class="tab-underlined active" data-target="Fiche">DESCRIPTION</a>
-  </div>
-  <div class="border-top show-details" id="description-id">
+  <div id="description-id">
     <p><%= @parcour.description %></p>
   </div>
- 
-<div id='strava_id_show' style="display: none"> <%= @parcour.strava_id  %></div>
-<div id='athlete_id_show' style="display: none"> <%= @parcour.athlete_id  %></div>
+
+  <%= cl_image_tag(@parcour.photo_url_three, id: 'img_show') %>
+
+  <div id="title-show">
+    <a href="#description-id" class="tab-underlined active" data-target="Fiche"><h2>LE PARCOURS</h2></a>
+  </div>
+
+  <div id="show-parcours">
+    <div id="carouselExampleIndicators" class="carousel slide carousel-show" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%= image_tag(@parcour.photo_url, width: '100%') %>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag(@parcour.photo_url_two, width: '100%') %>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag(@parcour.photo_url_three, width: '100%') %>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    
+    <div id="show-parcours-details">
+      <p><strong>Distance:</strong> <%= @parcour.distance %> kilometres</p>
+      <p><strong>Durée:</strong> <%= @parcour.duree %></p>
+      <p><strong>Denivele:</strong> <%= @parcour.denivele %></p>
+      <p><strong>Type:</strong> <%= @parcour.difficulte %></p>
+    </div>
+  </div>        
+
+  <div id="title-show">
+    <a href="#description-synopsis" class="tab-underlined active" data-target="Fiche"><h2>SYNOPSIS</h2></a>
+  </div>
+
+  <div id="description-synopsis">
+    <p><%= @parcour.synopsis.html_safe %></p>
+  </div>
+
+  <div id="title-show">
+    <a href="#description-tinder-spot" class="tab-underlined active" data-target="Fiche"><h2>LE TINDER SPOT</h2></a>
+  </div>
+
+  <div id="description-tinder-spot">
+    <p><%= @parcour.tinder_spot.html_safe %></p>
+  </div>
+
+  <div id="title-show">
+    <a href="#description-se-cultiver" class="tab-underlined active" data-target="Fiche"><h2>SE CULTIVER</h2></a>
+  </div>
+
+  <div id="description-se-cultiver">
+    <p><%= @parcour.se_cultiver.html_safe %></p>
+  </div>
+
+  <div id="title-show">
+    <a href="#description-se-ravitailler" class="tab-underlined active" data-target="Fiche"><h2>SE RAVITAILLER</h2></a>
+  </div>
+
+  <div id="description-se-ravitailler">
+    <p><%= @parcour.se_ravitailler.html_safe %></p>
+  </div>
+
+  <div id="title-show">
+    <a href="#description-transport" class="tab-underlined active" data-target="Fiche"><h2>S’Y RENDRE/EN  REVENIR EN TRANSPORT EN COMMUN</h2></a>
+  </div>
+
+  <div id="description-transport">
+    <p><%= @parcour.transport.html_safe %></p>
+  </div>
+
+
+  <div id='strava_id_show' style="display: none"> <%= @parcour.strava_id  %></div>
+  <div id='athlete_id_show' style="display: none"> <%= @parcour.athlete_id  %></div>
 
   <div id="btn-home">
     <%= link_to "ACCUEIL", root_path, class: "btn btn-outline-prk" %>

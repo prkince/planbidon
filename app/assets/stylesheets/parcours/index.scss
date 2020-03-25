@@ -1,5 +1,16 @@
+#page-title {
+	font-size: 44px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 2rem;
+    a {
+    	text-decoration: none
+    }
+}
+
 #map_container {
-	margin: 4rem 0rem 4rem 0rem;
+	margin: 0rem 1rem 4rem 0rem;
 	height: 100%;
 	width: 100%;
     display: flex;
@@ -14,6 +25,7 @@
 		color: grey
 	}
 	#map{
+		margin-top: 3rem;
 	    height: 440px;
 	    width: 900px;
 	    .leaflet-top, .leaflet-control-attribution {
