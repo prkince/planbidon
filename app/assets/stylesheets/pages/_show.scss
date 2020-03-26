@@ -63,8 +63,7 @@
 	margin: 1rem;
 	align-items: center;
 	#video-show {
-		color: blue;
-		width: 50%;
+		width: 60%;
 		video {
 			width: 100%
 		}
@@ -137,7 +136,6 @@
 		align-items: center;
 		flex-direction: column;
 		#video-show {
-			color: blue;
 			width: 80%;
 			video {
 				width: 100%
@@ -179,6 +177,16 @@
 		a {
 			padding: 5px;
 			text-decoration: none
+		}
+	}
+
+	#show-parcours {
+		#video-show {
+			width: 100%;
+			video {
+				width: 100%;
+				border: 1px solid $pb-color-three;
+			}
 		}
 	}
 
