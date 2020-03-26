@@ -1,3 +1,40 @@
+#img_show_top {
+	width: 100%;
+	margin-top: -32%;
+    position: static;
+    max-height: 740px;
+}
+
+#show-links {
+	display: flex;
+	flex-direction: row;
+	padding: 1rem 3rem 0rem 3rem;
+	justify-content: space-evenly;
+	a {
+		padding: 1rem;
+		text-decoration: none
+	}
+}
+
+#page-title-show {
+	position: relative;
+  	text-align: center;
+  	color: white;
+	#master-title-show {
+		text-decoration: none;
+		a {
+			position: absolute;
+			top: 42%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			font-size: 40px;
+			text-decoration: none;
+			width: 100%;
+			color: $pb-color-four
+		}
+	}
+}
+
 #container-show {
 	margin: 6rem;
 	p {
@@ -9,7 +46,14 @@
 	}
 	#img_show {
 		width: 100%;
-		padding: 1rem 4rem 1rem 4rem
+		height: 100%;
+		overflow: hidden;
+		img {
+			width: 100%;
+			margin-top: -15%;
+			margin-bottom: -15%;
+			padding: 1rem 1rem 1rem 1rem;
+		}
 	}
 }
 
@@ -55,39 +99,80 @@
 }
 
 @media (max-width: 1100px) {
-#container-show {
-	margin: 2rem;
-	h2 {
-		text-align: center
+
+	#page-title-show {
+		#master-title-show {
+			text-decoration: none;
+			a {
+				font-size: 32px;
+			}
+		}
 	}
-	#title-show {
-		padding: 2rem 0rem 2rem 0rem;
+
+	#container-show {
+		margin: 2rem;
+		h2 {
+			text-align: center
+		}
+		#title-show {
+			padding: 2rem 0rem 2rem 0rem;
+		}
+		#img_show {
+			width: 100%;
+			padding: 0rem 1rem 0rem 1rem;
+			img {
+				padding: 1rem 0rem 1rem 0rem
+			}
+		}
 	}
-	#img_show {
-		width: 100%;
-		padding: 0rem 1rem 0rem 1rem
+
+	#show-parcours {
+		color: $pb-color-three;
+		display: flex;
+		margin: 1rem;
+		align-items: center;
+		flex-direction: column;
+		.carousel-show {
+			width: 100%;
+			padding: 0
+		}
+		#show-parcours-details{
+			color: black;
+	  		max-width: 100%;
+	  		margin: 1rem;
+	  		p {
+				text-align: center;
+			    padding: 0;
+	  		}
+		}
+
 	}
 }
 
-#show-parcours {
-	color: $pb-color-three;
-	display: flex;
-	margin: 1rem;
-	align-items: center;
-	flex-direction: column;
-	.carousel-show {
-		width: 100%;
-		padding: 0
+@media (max-width: 900px) {
+
+	#page-title-show {
+		#master-title-show {
+			text-decoration: none;
+			a {
+				font-size: 22px;
+			}
+		}
 	}
-	#show-parcours-details{
-		color: black;
-  		max-width: 100%;
-  		margin: 1rem;
-  		p {
-			text-align: center;
-		    padding: 0;
-  		}
+	#img_show_top {
+		width: 100%;
+		margin-top: -100px;
+	    position: static;
+	    max-height: 400px;
+	}
+	#show-links {
+		display: flex;
+		flex-wrap: wrap;
+		padding: 1rem 1rem 1rem 1rem;
+		a {
+			padding: 5px;
+			text-decoration: none
+		}
 	}
 
-}
 }

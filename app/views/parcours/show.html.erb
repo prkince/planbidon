@@ -1,5 +1,20 @@
-<div id="page-title">
-  <a href="#description-show" class="tab-underlined active" data-target="Fiche"><%= @parcour.titre %></a>
+
+
+<div id="page-title-show">
+  <%= cl_image_tag(@parcour.photo_url_two, id: 'img_show_top') %>
+  <div id="master-title-show">
+    <a href="#description-id" class="tab-underlined active" data-target="Fiche"><%= @parcour.titre %></a>
+  </div>
+</div>
+
+<div id="show-links">
+  <%= link_to 'DESCRIPTION', '#description-id', class: "" %>
+  <%= link_to 'LE PARCOURS', '#show-parcours-details', class: "" %>
+  <%= link_to 'SYNOPSIS', '#description-synopsis', class: "" %>
+  <%= link_to 'LE TINDER SPOT', '#description-tinder-spot', class: "" %>
+  <%= link_to 'SE CULTIVER', '#description-se-cultiver', class: "" %>
+  <%= link_to 'SE RAVITAILLER', '#description-se-ravitailler', class: "" %>
+  <%= link_to 'TRANSPORT', '#description-transport', class: "" %>
 </div>
 
 <div id="container-show">
@@ -11,11 +26,13 @@
   <div id="description-id">
     <p><%= @parcour.description %></p>
   </div>
-
-  <%= cl_image_tag(@parcour.photo_url_three, id: 'img_show') %>
+  
+  <div id="img_show">
+    <%= cl_image_tag(@parcour.photo_url_three, id: '') %>
+  </div>
 
   <div id="title-show">
-    <a href="#description-id" class="tab-underlined active" data-target="Fiche"><h2>LE PARCOURS</h2></a>
+    <a href="#show-parcours-details" class="tab-underlined active" data-target="Fiche"><h2>LE PARCOURS</h2></a>
   </div>
 
   <div id="show-parcours">
@@ -62,12 +79,20 @@
     <p><%= @parcour.synopsis.html_safe %></p>
   </div>
 
+  <div id="img_show">
+    <%= cl_image_tag(@parcour.photo_url_two, id: '') %>
+  </div>
+
   <div id="title-show">
     <a href="#description-tinder-spot" class="tab-underlined active" data-target="Fiche"><h2>LE TINDER SPOT</h2></a>
   </div>
 
   <div id="description-tinder-spot">
     <p><%= @parcour.tinder_spot.html_safe %></p>
+  </div>
+
+  <div id="img_show">
+    <%= cl_image_tag(@parcour.photo_url_three, id: '') %>
   </div>
 
   <div id="title-show">
@@ -78,12 +103,20 @@
     <p><%= @parcour.se_cultiver.html_safe %></p>
   </div>
 
+  <div id="img_show">
+    <%= cl_image_tag(@parcour.photo_url_two, id: '') %>
+  </div>
+
   <div id="title-show">
     <a href="#description-se-ravitailler" class="tab-underlined active" data-target="Fiche"><h2>SE RAVITAILLER</h2></a>
   </div>
 
   <div id="description-se-ravitailler">
     <p><%= @parcour.se_ravitailler.html_safe %></p>
+  </div>
+
+  <div id="img_show">
+    <%= cl_image_tag(@parcour.photo_url, id: '') %>
   </div>
 
   <div id="title-show">
@@ -94,6 +127,9 @@
     <p><%= @parcour.transport.html_safe %></p>
   </div>
 
+  <div id="img_show">
+    <%= cl_image_tag(@parcour.photo_url_three, id: '') %>
+  </div>
 
   <div id='strava_id_show' style="display: none"> <%= @parcour.strava_id  %></div>
   <div id='athlete_id_show' style="display: none"> <%= @parcour.athlete_id  %></div>

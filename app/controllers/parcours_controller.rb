@@ -8,6 +8,18 @@ class ParcoursController < ApplicationController
     @parcours_map_start_id = @parcours.map { |parcour| parcour.map_start_id }
     @parcours_titre = @parcours.map { |parcour| parcour.titre }
     @parcours_id = @parcours.map { |parcour| parcour.id }
+
+    @parcours_details = @parcours.map { |parcour| 
+      {
+        id: parcour.id, 
+        strava_id: parcour.strava_id, 
+        titre: parcour.titre, 
+        distance: parcour.distance, 
+        duree: parcour.duree,
+        denivele: parcour.denivele,
+        map_id: parcour.map_id
+      }
+    }
   end
 
   def show

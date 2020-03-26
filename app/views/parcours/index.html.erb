@@ -3,13 +3,21 @@
 </div>
 
 <div id="map_container" class="border-top">
-	<div id="map" data-aos="zoom-in" data-aos-delay="450"></div>
+	<div id="map" data-aos="fade-down" data-aos-delay="450"></div>
 </div>
 
 <div class="map_ids" style="display: none"><%= @parcours_map_id %></div> 
 <div class="map_start_ids" style="display: none"><%= @parcours_map_start_id %></div> 
 <div class="map_title" style="display: none"><%= @parcours_titre %></div> 
 <div class="ids" style="display: none"><%= @parcours_id  %></div>
+
+<div id="page-title">
+	<a href="#map" class="tab-underlined active" data-target="Fiche">LISTE DES PARCOURS</a>
+</div>
+
+<div id="cardsPrk"></div>
+<div id="accueilCard"></div>
+<div class="parcours_details" style="display: none"><%= @parcours_details  %></div>
 
 <div id="btn-home">
 	<%= link_to "ACCUEIL", root_path, class: "btn btn-outline-prk" %>
