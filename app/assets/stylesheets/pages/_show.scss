@@ -62,8 +62,12 @@
 	display: flex;
 	margin: 1rem;
 	align-items: center;
-	.carousel-show {
-		width: 60%;
+	#video-show {
+		color: blue;
+		width: 50%;
+		video {
+			width: 100%
+		}
 	}
 	#show-parcours-details{
 		color: black;
@@ -132,9 +136,12 @@
 		margin: 1rem;
 		align-items: center;
 		flex-direction: column;
-		.carousel-show {
-			width: 100%;
-			padding: 0
+		#video-show {
+			color: blue;
+			width: 80%;
+			video {
+				width: 100%
+			}
 		}
 		#show-parcours-details{
 			color: black;
