@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_25_091034) do
+ActiveRecord::Schema.define(version: 2020_03_26_100119) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,15 +24,12 @@ ActiveRecord::Schema.define(version: 2020_03_25_091034) do
   create_table "parcours", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "photo_url"
     t.string "titre"
     t.string "distance"
     t.string "duree"
     t.string "denivele"
     t.string "difficulte"
-    t.string "photo_url_two"
     t.text "description"
-    t.string "photo_url_three"
     t.string "strava_id"
     t.string "athlete_id"
     t.string "map_id"
@@ -42,6 +39,7 @@ ActiveRecord::Schema.define(version: 2020_03_25_091034) do
     t.string "se_cultiver"
     t.string "se_ravitailler"
     t.string "transport"
+    t.string "photos"
   end
 
   create_table "users", force: :cascade do |t|

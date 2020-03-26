@@ -1,7 +1,5 @@
-
-
 <div id="page-title-show">
-  <%= cl_image_tag(@parcour.photo_url_two, id: 'img_show_top') %>
+  <%= cl_image_tag(@parcour.photos.split(',')[1], id: 'img_show_top') %>
   <div id="master-title-show">
     <a href="#description-id" class="tab-underlined active" data-target="Fiche"><%= @parcour.titre %></a>
   </div>
@@ -28,7 +26,7 @@
   </div>
   
   <div id="img_show">
-    <%= cl_image_tag(@parcour.photo_url_three, id: '') %>
+    <%= cl_image_tag(@parcour.photos.split(',')[2], id: '') %>
   </div>
 
   <div id="title-show">
@@ -44,13 +42,13 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <%= image_tag(@parcour.photo_url, width: '100%') %>
+          <%= image_tag(@parcour.photos.split(',')[0], width: '100%') %>
         </div>
         <div class="carousel-item">
-          <%= image_tag(@parcour.photo_url_two, width: '100%') %>
+          <%= image_tag(@parcour.photos.split(',')[1], width: '100%') %>
         </div>
         <div class="carousel-item">
-          <%= image_tag(@parcour.photo_url_three, width: '100%') %>
+          <%= image_tag(@parcour.photos.split(',')[2], width: '100%') %>
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -80,7 +78,7 @@
   </div>
 
   <div id="img_show">
-    <%= cl_image_tag(@parcour.photo_url_two, id: '') %>
+    <%= cl_image_tag(@parcour.photos.split(',')[1], id: '') %>
   </div>
 
   <div id="title-show">
@@ -92,7 +90,7 @@
   </div>
 
   <div id="img_show">
-    <%= cl_image_tag(@parcour.photo_url_three, id: '') %>
+    <%= cl_image_tag(@parcour.photos.split(',')[2], id: '') %>
   </div>
 
   <div id="title-show">
@@ -104,7 +102,7 @@
   </div>
 
   <div id="img_show">
-    <%= cl_image_tag(@parcour.photo_url_two, id: '') %>
+    <%= cl_image_tag(@parcour.photos.split(',')[1], id: '') %>
   </div>
 
   <div id="title-show">
@@ -116,7 +114,7 @@
   </div>
 
   <div id="img_show">
-    <%= cl_image_tag(@parcour.photo_url, id: '') %>
+    <%= cl_image_tag(@parcour.photos.split(',')[0], id: '') %>
   </div>
 
   <div id="title-show">
@@ -128,7 +126,7 @@
   </div>
 
   <div id="img_show">
-    <%= cl_image_tag(@parcour.photo_url_three, id: '') %>
+    <%= cl_image_tag(@parcour.photos.split(',')[2], id: '') %>
   </div>
 
   <div id='strava_id_show' style="display: none"> <%= @parcour.strava_id  %></div>
