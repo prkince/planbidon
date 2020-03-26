@@ -23,6 +23,7 @@ class ParcoursController < ApplicationController
   end
 
   def show
+    @parcour_start = @parcour.map_start_id.gsub!(',', "%2C")
   end
 
   def new

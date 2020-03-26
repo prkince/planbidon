@@ -125,6 +125,10 @@
     <p><%= @parcour.transport.html_safe %></p>
   </div>
 
+  <div id="btn-home">
+    <%= link_to "Y ALLER AVEC CITYMAPPER", "https://citymapper.com/directions?endcoord=#{@parcour_start}", target: "_blank",  class: "btn btn-outline-prk" %>
+  </div>
+
   <div id="img_show">
     <%= cl_image_tag(@parcour.photos.split(',')[2], id: '') %>
   </div>
