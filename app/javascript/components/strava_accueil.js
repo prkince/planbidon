@@ -50,9 +50,9 @@ const stravaAccueil = () => {
             `;
             newCards.insertAdjacentHTML("beforeend", parcours);
             let map = L.map(`map${data.id}`).fitBounds(L.Polyline.fromEncoded(data.map_id).getLatLngs());
-            L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', {
+            L.tileLayer('https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
                 maxZoom: 16,
-                attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+                attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(map);
             var coordinates = L.Polyline.fromEncoded(data.map_id).getLatLngs();
 
