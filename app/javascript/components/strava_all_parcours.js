@@ -55,7 +55,7 @@ const stravaAllParcours = () => {
                 opacity: .7,
                 lineJoin: 'round'
             }
-        ).addTo(map).bindPopup(`<a href='#map${arrayIds[index]}'>Parcours: <br>${arrayMapTitles[index]}</a>`);       
+        ).addTo(map).bindPopup(`<a href='./parcours/${arrayIds[index]}'>Parcours: <br>${arrayMapTitles[index]}</a>`);       
     })
 }
 
