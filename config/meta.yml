@@ -1,5 +1,5 @@
 meta_product_name: "Plan Bidon"
 meta_title: "Plan Bidon - Itinéraires testés, tracés et engagés"
 meta_description: "Tous les circuits ont été testés et retestés, ils ont été tracés et prêts à l’emploi pour vos GPS et ont pour ambition de mettre en valeur la richesse du territoire francilien."
-meta_image: "road_bike_7.png" # should exist in `app/assets/images/`
+meta_image: "facebook.png" # should exist in `app/assets/images/`
 twitter_account: "@planbidon"   # required for Twitter Cards
