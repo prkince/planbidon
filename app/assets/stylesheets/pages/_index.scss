@@ -1,4 +1,12 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "show";
-@import "about"
+@import "about";
+
+a {
+	color: $pb-color-three;
+}
+
+a:hover {
+	color: $pb-color-one;
+}

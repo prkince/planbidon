@@ -1,12 +1,12 @@
 .footer {
-  font-color: #ff5959;
+  font-color: $pb-color-one;
   padding: 10px 25px 10px 25px;
   background: rgba(232, 233, 233, 0.2);
   display: flex;
   justify-content: space-between;
   height: 45px;
   a {
-    color: rgba(228, 146, 187, 1)
+    color: $pb-color-one
   }
   a:hover {
     color: lightgrey;
