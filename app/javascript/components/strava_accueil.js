@@ -50,9 +50,10 @@ const stravaAccueil = () => {
             `;
             newCards.insertAdjacentHTML("beforeend", parcours);
             let map = L.map(`map${data.id}`).fitBounds(L.Polyline.fromEncoded(data.map_id).getLatLngs());
-            L.tileLayer('https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
-                maxZoom: 16,
-                attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 19
             }).addTo(map);
             var coordinates = L.Polyline.fromEncoded(data.map_id).getLatLngs();
 
