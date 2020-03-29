@@ -28,12 +28,20 @@ const stravaShow = () => {
         let parcours = `
             <li style="list-style-type: none;">
                 <div id="map${object.id}" class='mapStrava'></div>
+                <div class="overlay">
+                    <div class="card-category-prk-2">
+                        <div class="card-details">
+                            <p>${object.titre}</p>
+                        </div>
+                    </div>
+                </div>
             </li>
         `;
         mapShow.insertAdjacentHTML("beforeend", parcours);
         let map = L.map(`map${object.id}`).fitBounds(L.Polyline.fromEncoded(object.map_id).getLatLngs());
-        L.tileLayer('https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
-            attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd',
         }).addTo(map);
         var coordinates = L.Polyline.fromEncoded(object.map_id).getLatLngs();
 

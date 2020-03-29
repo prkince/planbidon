@@ -15,9 +15,8 @@
   .overlay{
     width:100%;
     height:100%;
-    display:none;
     position:absolute;
-        top: 35%;
+    top: 35%;
     left:0px;
     z-index: 1000;
   }
@@ -32,6 +31,7 @@
   }
   li:hover .overlay {
     display:block;
+    display:none;
   }
   .card-category-prk-2 {
     width: 100%;
