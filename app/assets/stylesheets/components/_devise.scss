@@ -1,0 +1,33 @@
+.devise-container {
+    display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 8rem 2rem 2rem 2rem;
+  	flex-direction: column;
+  	form {
+	  	border: 1px solid;
+	  	flex-direction: column;
+	  	justify-content: center;
+	  	padding: 1rem 1rem 1rem 1rem;
+  	}
+  	background-image: url('https://res.cloudinary.com/planbidon/image/upload/v1585404353/banniere_2_ynp0d6.jpg');
+  	color: $pb-color-two;
+  	.form-actions {
+		text-align: center;
+		font-weight: 700;
+		.btn {
+			color: $pb-color-two;
+      border: 1px solid;
+		}
+    .btn:hover {
+      color: $pb-color-one;
+    }
+  	}
+  	a {
+  		color: $pb-color-two;
+  		margin-top: 3rem;
+  		border: 1px solid;
+  		padding: 1rem 1rem 1rem 1rem;
+      text-decoration: none
+  	}
+}

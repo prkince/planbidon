@@ -21,4 +21,7 @@ if(document.getElementById("accueilCard")){
 	stravaAccueil();
 }
 
+import { stravaShow } from '../components/strava_show.js';
+stravaShow();
+
 //import '../components/strava_show.js';

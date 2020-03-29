@@ -24,6 +24,16 @@ class ParcoursController < ApplicationController
 
   def show
     @parcour_start = @parcour.map_start_id.gsub!(',', "%2C")
+    @parcour_details = 
+      {
+        id: @parcour.id, 
+        strava_id: @parcour.strava_id, 
+        titre: @parcour.titre, 
+        distance: @parcour.distance, 
+        duree: @parcour.duree,
+        denivele: @parcour.denivele,
+        map_id: @parcour.map_id
+      }
   end
 
   def new

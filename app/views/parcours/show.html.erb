@@ -114,15 +114,24 @@
     <%= link_to "Y ALLER AVEC CITYMAPPER", "https://citymapper.com/directions?endcoord=#{@parcour_start}", target: "_blank",  class: "btn btn-outline-prk" %>
   </div>
 
-  <div id="img_show">
-    <%= cl_image_tag(@parcour.photos.split(',')[2], id: '') %>
+  <div id="title-show">
+    <a href="#description-carte" class="tab-underlined active" data-target="Fiche"><h2>CARTE DU PARCOURS</h2></a>
   </div>
+
+  <div id="cardShow"> </div>
 
   <div id='strava_id_show' style="display: none"> <%= @parcour.strava_id  %></div>
   <div id='athlete_id_show' style="display: none"> <%= @parcour.athlete_id  %></div>
+
+  <div id='parcour_details' style="display: none"> <%= @parcour_details  %></div>
 
   <div id="btn-home">
     <%= link_to "ACCUEIL", root_path, class: "btn btn-outline-prk" %>
   </div>
 
 </div>
+
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+crossorigin=""></script>
+<script type="text/javascript" src="https://rawgit.com/jieter/Leaflet.encoded/master/Polyline.encoded.js"></script>
