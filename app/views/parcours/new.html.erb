@@ -1,12 +1,8 @@
-<div id="cardsPrk">
+<div id="page-title-show">
+  <%= cl_image_tag('https://res.cloudinary.com/planbidon/image/upload/v1585404353/banniere_3_yyy93f.jpg', id: 'img_show_top') %>
+  <div id="master-title-show">
+    <a href="#about-testes" class="tab-underlined active" data-target="Fiche"> NOUVEAU PARCOURS</a>
+  </div>
 </div>
 
-<div class="strava_ids_prk" style="display: none"><%= @parcours_strava_id_prk %></div> 
-<div class="strava_ids_ga" style="display: none"><%= @parcours_strava_id_ga %></div>
-<div class="ids" style="display: none"><%= @parcours_id  %></div>
-<div class="parcourstotal" style="display: none"><%= @parcours_total  %></div>
-<div id='newCard'></div>
-<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-crossorigin=""></script>
-<script type="text/javascript" src="https://rawgit.com/jieter/Leaflet.encoded/master/Polyline.encoded.js"></script>
+<%= render './shared/form' %>

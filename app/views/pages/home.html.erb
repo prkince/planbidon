@@ -2,6 +2,15 @@
 	<%= cl_image_tag("https://res.cloudinary.com/planbidon/image/upload/v1584884442/plan_bidon_accueil_biwayz.png", id: 'img_accueil') %>
 </div>
 
+<% if user_signed_in? %>
+  <div id=show-links>
+    <div id="btn-home">
+      <%= link_to "AJOUTER UN PARCOURS", new_parcour_path, class: "btn btn-outline-prk" %>
+    </div>
+  </div>
+<% end %>
+
+
 <div id="cardsPrk">
 </div>
 <div id="accueilCard"></div>

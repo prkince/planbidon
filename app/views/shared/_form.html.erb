@@ -1,0 +1,28 @@
+<div class="cotation-container" align="center">
+  <%= simple_form_for @parcour, :html => {:class => 'form-horizontal' } do |f| %>
+    <%= f.input :titre, :required => true, label: "Titre du parcours"  %>
+    <%= f.input :distance %>
+    <%= f.input :duree %>
+    <%= f.input :denivele %>
+    <%= f.input :difficulte %>
+    <%= f.input :description, :as => :text %>
+    <%= f.input :strava_id, label: "Strava_id: exemple: 15738524" %>
+    <%= f.input :athlete_id, label: "Athlete_id: GA: 28847458" %>
+    <%= f.input :map_id, label: "Map_id: Strava Polyline (echappe les backslashes)", :as => :text %>
+    <%= f.input :map_start_id, label: "Point de départ: Exemple: 48.702404, 2.069594 " %>
+    <%= f.input :synopsis, :as => :text %>
+    <%= f.input :tinder_spot, :as => :text %>
+    <%= f.input :se_cultiver, :as => :text %>
+    <%= f.input :se_ravitailler, :as => :text %>
+    <%= f.input :transport, :as => :text %>
+    <%= f.input :photos, :required => true, label: "Photos (3 liens mini): Exemple: lien_1,lien_2,lien_3 sans espaces", :as => :text %>
+    <%= f.input :relive_id, label: 'Lien Relive video (comme cloudinary)', :as => :text %>
+    <div class= "hidden">
+      <%= f.input :nickname, :hint => 'Leave this field blank!' %>
+    </div>
+    <div>
+      </br>
+      <%= f.button :submit, 'Envoyer', :class=> "btn btn-outline-prk" %>
+    </div>
+  <% end %>
+</div>

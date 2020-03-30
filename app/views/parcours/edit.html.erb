@@ -1,2 +1,8 @@
-<h1>Parcours#edit</h1>
-<p>Find me in app/views/parcours/edit.html.erb</p>
+<div id="page-title-show">
+  <%= cl_image_tag(@parcour.photos.split(',')[1], id: 'img_show_top') %>
+  <div id="master-title-show">
+    <a href="#description-id" class="tab-underlined active" data-target="Fiche">EDITER LE PARCOURS: <%= @parcour.titre %></a>
+  </div>
+</div>
+
+<%= render './shared/form' %>
