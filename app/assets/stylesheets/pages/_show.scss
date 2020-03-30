@@ -1,6 +1,6 @@
 #img_show_top {
 	width: 100%;
-	margin-top: -32%;
+	margin-top: -30%;
     position: static;
     max-height: 700px;
 }
@@ -24,7 +24,7 @@
 		text-decoration: none;
 		a {
 			position: absolute;
-			top: 42%;
+			top: 60%;
 			left: 50%;
 			transform: translate(-50%, -50%);
 			font-size: 50px;
@@ -41,6 +41,7 @@
 #container-show {
 	margin: 6rem;
 	p {
+		cursor: default;
 		text-align: justify;
 		padding: 1rem 1rem 1rem 1rem;
 	}
@@ -67,6 +68,7 @@
 	align-items: center;
 	#video-show {
 		width: 60%;
+		cursor: pointer;
 		video {
 			width: 100%
 		}
