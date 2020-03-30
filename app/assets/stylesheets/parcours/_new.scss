@@ -1,0 +1,71 @@
+.hidden { display: none; }
+
+/*flash*/
+
+.alert-error {
+  background-color: $pb-color-one;
+  border-color: $pb-color-two;
+  color: $pb-color-three;
+  text-align: left;
+}
+
+.alert-alert {
+  background-color: $pb-color-one;
+  border-color: $pb-color-two;
+  color: $pb-color-three;
+  text-align: left;
+}
+
+.alert-success {
+  background-color: $pb-color-four;
+  border-color: $pb-color-one;
+  color: $pb-color-two;
+  text-align: left;
+}
+
+.alert-notice {
+  background-color: $pb-color-four;
+  border-color: $pb-color-one;
+  color: $pb-color-two;
+  text-align: left;
+}
+
+
+.cotation-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem 1rem 1rem;
+  flex-direction: column;
+  form {
+  	label {
+  		font-weight: bold;
+  	}
+  	width: 80%;
+  	border: 1px solid;
+  	flex-direction: column;
+  	justify-content: center;
+  	padding: 1rem 1rem 1rem 1rem;
+  	.form-control-file, .form-control-range {
+  	width: auto;
+  	font-weight: bold;
+  	}
+  	legend {
+  		font-weight: bold;
+  	}
+  }
+  color: $pb-color-one;
+  .form-actions {
+  text-align: center;
+  font-weight: 700;
+  .btn {
+  	color: white
+  }
+  }
+  a {
+  	color: white;
+  	margin-top: 3rem;
+  	border: 1px solid;
+  	padding: 1rem 1rem 1rem 1rem;
+  }
+}

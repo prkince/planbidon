@@ -37,46 +37,38 @@ class ParcoursController < ApplicationController
   end
 
   def new
-    @parcours = Parcour.all
-
-    @parcours_strava_id_prk = []
-    @parcours_strava_id_ga = []
-    @parcours_total = []
-    @parcours.each do |parcour|
-      if parcour.athlete_id == '40594550'
-        @parcours_strava_id_prk << parcour.strava_id
-        @parcours_total.unshift(parcour.strava_id)
-      else 
-        @parcours_strava_id_ga << parcour.strava_id
-        @parcours_total << parcour.strava_id
-      end
-    end
-
-    @parcours_id = []
-    @parcours_total.each do |variable|
-      @parcours.each do |parcour|
-        if variable == parcour.strava_id
-          @parcours_id << parcour.id
-        end 
-      end
-    end 
+    @parcour = Parcour.new
   end
 
   def create
+    @parcour = Parcour.new(parcour_params)
+    @parcour.save
   end
 
   def edit
   end
 
   def update
+    @parcour.update(parcour_params)
+    redirect_to parcour_path(@parcour)
   end
 
   def destroy
+    @parcour.destroy
+    redirect_to parcours_path
   end
 
   private 
 
   def set_parcour
     @parcour = Parcour.find(params[:id])
+  end
+
+  def parcour_params
+    params.require(:parcour).permit(
+      :titre, :distance, :duree, :denivele, :difficulte, :description, 
+      :strava_id, :athlete_id, :map_id, :map_start_id, :synopsis, 
+      :tinder_spot, :se_cultiver, :se_ravitailler, :transport, :photos, :relive_id
+      )
   end
 end

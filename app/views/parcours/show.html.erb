@@ -19,6 +19,21 @@
   <%= link_to 'TRANSPORT', '#description-transport', class: "" %>
 </div>
 
+<% if user_signed_in? %>
+  <div id=show-links>
+    <div id="btn-home">
+      <%= link_to "EDITER CE PARCOURS", edit_parcour_path, class: "btn btn-outline-prk" %>
+    </div>
+    <div id="btn-home">
+      <%= link_to "EFFACER CE PARCOURS",
+            parcour_path(@parcour),
+            method: :delete,
+            data: { confirm: "Es-tu sur de vouloir supprimer ce parcours ?" },
+            class: "btn btn-outline-prk"  %>
+    </div>
+  </div>
+<% end %>
+
 <div id="container-show">
 
   <div id="title-show">
