@@ -5,13 +5,14 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1rem;
   a {
-        margin: auto;
+    margin: auto;
   }
   .mapStrava{
     width: 300px;
     height: 450px;
     align-self: center;
     margin: 0;
+    cursor: pointer;
     .leaflet-control-attribution {
       display: none
     }

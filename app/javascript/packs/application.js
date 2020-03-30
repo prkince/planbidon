@@ -22,6 +22,8 @@ if(document.getElementById("accueilCard")){
 }
 
 import { stravaShow } from '../components/strava_show.js';
-stravaShow();
+if(document.getElementById("cardShow")){
+	stravaShow();
+}
 
 //import '../components/strava_show.js';
