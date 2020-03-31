@@ -12,7 +12,7 @@ if(document.getElementById("newCard")){
 }
 
 import { stravaAllParcours } from '../components/strava_all_parcours.js';
-if(document.getElementById("map")){
+if(document.getElementById("map_container")){
 	stravaAllParcours();
 }
 

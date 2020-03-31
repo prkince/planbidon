@@ -1,31 +1,49 @@
 <div id="page-title-show">
   <%= cl_image_tag('https://res.cloudinary.com/planbidon/image/upload/v1585403827/photo_banniere_rnfooz.jpg', id: 'img_show_top') %>
   <div id="master-title-show">
-    <a href="#map_container" class="tab-underlined active" data-target="Fiche">NOS PARCOURS</a>
+    <a href="#page-title-carte-parcours" class="tab-underlined active" data-target="Fiche">NOS PARCOURS</a>
   </div>
 </div>
 
-<div id="map_container" class="border-top">
-	<div id="map" data-aos="fade-down" data-aos-delay="450"></div>
+<div id="show-links">
+  <%= link_to 'CARTE DES PARCOURS', '#page-title-carte-parcours', class: "" %>
+  <%= link_to 'LISTE DES PARCOURS', '#page-title-liste-parcours', class: "" %>
 </div>
 
-<div class="map_ids" style="display: none"><%= @parcours_map_id %></div> 
-<div class="map_start_ids" style="display: none"><%= @parcours_map_start_id %></div> 
-<div class="map_title" style="display: none"><%= @parcours_titre %></div> 
-<div class="ids" style="display: none"><%= @parcours_id  %></div>
+<div id="container-show">
 
-<div id="page-title">
-	<a href="#map" class="tab-underlined active" data-target="Fiche">LISTE DES PARCOURS</a>
+	<div class="title-show" id="page-title-carte-parcours">
+		<a href="#page-title-carte-parcours" class="tab-underlined active" data-target="Fiche"><h2>CARTE DES PARCOURS</h2></a>
+	</div>
+
+	<div id="map_container">
+		<div id="map" data-aos="fade-down" data-aos-delay="450"></div>
+	</div>
+
+	<div class="title-show" id="page-title-liste-parcours">
+		<a href="#page-title-liste-parcours" class="tab-underlined active" data-target="Fiche"><h2>LISTE DES PARCOURS</h2></a>
+	</div>
+
 </div>
 
 <div id="cardsPrk"></div>
 <div id="accueilCard"></div>
-<div class="parcours_details" style="display: none"><%= @parcours_details  %></div>
+
+<div id="show-links">
+  <%= link_to 'CARTE DES PARCOURS', '#page-title-carte-parcours', class: "" %>
+  <%= link_to 'LISTE DES PARCOURS', '#page-title-liste-parcours', class: "" %>
+</div>
 
 <div id="btn-home">
 	<%= link_to "ACCUEIL", root_path, class: "btn btn-outline-prk" %>
 </div>
 
+
+<div class="parcours_details" style="display: none"><%= @parcours_details  %></div>
+<div class="map_ids" style="display: none"><%= @parcours_map_id %></div> 
+<div class="map_start_ids" style="display: none"><%= @parcours_map_start_id %></div> 
+<div class="map_title" style="display: none"><%= @parcours_titre %></div> 
+<div class="ids" style="display: none"><%= @parcours_id  %></div>
 
 <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
 integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="

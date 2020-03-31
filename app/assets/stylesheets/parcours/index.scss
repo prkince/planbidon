@@ -1,5 +1,6 @@
 @import "new";
 
+
 #page-title {
 	font-size: 44px;
     font-weight: bold;
@@ -27,9 +28,9 @@
 		color: grey
 	}
 	#map{
-		margin-top: 3rem;
+		margin: 3rem 0rem;
 	    height: 440px;
-	    width: 80%;
+	    width: 100%;
 	    .leaflet-top, .leaflet-control-attribution {
       		display: none
     	}
