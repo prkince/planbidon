@@ -17,7 +17,9 @@
   <%= link_to 'SE CULTIVER', '#description-se-cultiver', class: "" %>
   <%= link_to 'SE RAVITAILLER', '#description-se-ravitailler', class: "" %>
   <%= link_to 'TRANSPORT', '#description-transport', class: "" %>
+  <%= link_to 'CARTE & GPS', '#description-carte', class: "" %>
 </div>
+
 
 <% if user_signed_in? %>
   <div id=show-links>
@@ -31,24 +33,25 @@
             data: { confirm: "Es-tu sur de vouloir supprimer ce parcours ?" },
             class: "btn btn-outline-prk"  %>
     </div>
+    <div id="btn-home">
+      <%= link_to "PAGE STRAVA", "https://www.strava.com/routes/#{@parcour.strava_id}", target: "_blank", class: "btn btn-outline-prk" %>
+    </div>
   </div>
 <% end %>
 
 <div id="container-show">
 
-  <div id="title-show">
+  <div class="title-show" id="description-id">
     <a href="#description-id" class="tab-underlined active" data-target="Fiche"><h2>DESCRIPTION</h2></a>
   </div>
 
-  <div id="description-id">
-    <p><%= @parcour.description %></p>
-  </div>
+  <p><%= @parcour.description %></p>
   
   <div id="img_show">
     <%= cl_image_tag(@parcour.photos.split(',')[2], id: '') %>
   </div>
 
-  <div id="title-show">
+  <div class="title-show" id="show-parcours-details">
     <a href="#show-parcours-details" class="tab-underlined active" data-target="Fiche"><h2>LE PARCOURS</h2></a>
   </div>
 
@@ -69,68 +72,63 @@
 
   </div>        
 
-  <div id="title-show">
+  <div class="title-show" id="description-synopsis">
     <a href="#description-synopsis" class="tab-underlined active" data-target="Fiche"><h2>SYNOPSIS</h2></a>
   </div>
 
-  <div id="description-synopsis">
-    <p><%= @parcour.synopsis.html_safe %></p>
-  </div>
+  <p><%= @parcour.synopsis.html_safe %></p>
 
   <div id="img_show">
     <%= cl_image_tag(@parcour.photos.split(',')[1], id: '') %>
   </div>
 
-  <div id="title-show">
+  <div class="title-show" id="description-tinder-spot">
     <a href="#description-tinder-spot" class="tab-underlined active" data-target="Fiche"><h2>LE TINDER SPOT</h2></a>
   </div>
 
-  <div id="description-tinder-spot">
-    <p><%= @parcour.tinder_spot.html_safe %></p>
-  </div>
+  <p><%= @parcour.tinder_spot.html_safe %></p>
 
   <div id="img_show">
     <%= cl_image_tag(@parcour.photos.split(',')[2], id: '') %>
   </div>
 
-  <div id="title-show">
+  <div class="title-show" id="description-se-cultiver">
     <a href="#description-se-cultiver" class="tab-underlined active" data-target="Fiche"><h2>SE CULTIVER</h2></a>
   </div>
 
-  <div id="description-se-cultiver">
-    <p><%= @parcour.se_cultiver.html_safe %></p>
-  </div>
+  <p><%= @parcour.se_cultiver.html_safe %></p>
 
   <div id="img_show">
     <%= cl_image_tag(@parcour.photos.split(',')[1], id: '') %>
   </div>
 
-  <div id="title-show">
+  <div class="title-show" id="description-se-ravitailler">
     <a href="#description-se-ravitailler" class="tab-underlined active" data-target="Fiche"><h2>SE RAVITAILLER</h2></a>
   </div>
 
-  <div id="description-se-ravitailler">
-    <p><%= @parcour.se_ravitailler.html_safe %></p>
-  </div>
+  <p><%= @parcour.se_ravitailler.html_safe %></p>
 
   <div id="img_show">
     <%= cl_image_tag(@parcour.photos.split(',')[0], id: '') %>
   </div>
 
-  <div id="title-show">
+  <div class="title-show" id="description-transport">
     <a href="#description-transport" class="tab-underlined active" data-target="Fiche"><h2>S’Y RENDRE/EN  REVENIR EN TRANSPORT EN COMMUN</h2></a>
   </div>
 
-  <div id="description-transport">
-    <p><%= @parcour.transport.html_safe %></p>
-  </div>
+  <p><%= @parcour.transport.html_safe %></p>
 
   <div id="btn-home">
     <%= link_to "Y ALLER AVEC CITYMAPPER", "https://citymapper.com/directions?endcoord=#{@parcour_start}", target: "_blank",  class: "btn btn-outline-prk" %>
   </div>
 
-  <div id="title-show">
-    <a href="#description-carte" class="tab-underlined active" data-target="Fiche"><h2>CARTE DU PARCOURS</h2></a>
+  <div class="title-show" id="description-carte">
+    <a href="#description-carte" class="tab-underlined active" data-target="Fiche"><h2>CARTE DU PARCOURS & COORDONNNES GPS</h2></a>
+  </div>
+
+  <div id=show-links>
+      <%= link_to "Exporter Coordonnées GPX", @parcour.gpx, class: "" %>
+      <%= link_to "Exporter Coordonnées TCX", @parcour.tcx, class: ""  %>
   </div>
 
   <div id="cardShow"> </div>
@@ -140,10 +138,27 @@
 
   <div id='parcour_details' style="display: none"> <%= @parcour_details  %></div>
 
+
+</div>
+
+<div id="show-links">
+  <%= link_to 'DESCRIPTION', '#description-id', class: "" %>
+  <%= link_to 'LE PARCOURS', '#show-parcours-details', class: "" %>
+  <%= link_to 'SYNOPSIS', '#description-synopsis', class: "" %>
+  <%= link_to 'LE TINDER SPOT', '#description-tinder-spot', class: "" %>
+  <%= link_to 'SE CULTIVER', '#description-se-cultiver', class: "" %>
+  <%= link_to 'SE RAVITAILLER', '#description-se-ravitailler', class: "" %>
+  <%= link_to 'TRANSPORT', '#description-transport', class: "" %>
+  <%= link_to 'CARTE & GPS', '#description-carte', class: "" %>
+</div>
+
+<div id=show-links>
   <div id="btn-home">
     <%= link_to "ACCUEIL", root_path, class: "btn btn-outline-prk" %>
   </div>
-
+  <div id="btn-home">
+    <%= link_to "NOS PARCOURS", parcours_path, class: "btn btn-outline-prk"  %>
+  </div>
 </div>
 
 <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"

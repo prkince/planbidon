@@ -1,0 +1,17 @@
+#btn-home {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-outline-prk {
+	background-color: $pb-color-three;
+	color: $pb-color-two;
+	margin: 3rem 0rem 3rem 0rem;
+	min-width: 200px;
+	padding: 10px;
+}
+.btn-outline-prk:hover {
+	background-color: $pb-color-one;
+	color: $pb-color-four
+}

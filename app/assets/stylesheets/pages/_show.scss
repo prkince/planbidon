@@ -40,7 +40,7 @@
 }
 
 #container-show {
-	margin: 6rem;
+	margin: 3rem 6rem;
 	p {
 		cursor: default;
 		text-align: justify;
@@ -83,28 +83,10 @@
 }
 
 
-#title-show {
-	padding: 2rem 1rem 2rem 1rem;
+.title-show {
+	padding: 5rem 1rem 2rem 1rem;
     margin: 3rem 0rem 0rem 0rem;
     border-top: 1px solid lightgrey;
-}
-
-#btn-home {
-	display: flex;
-    justify-content: center;
-    margin-bottom: 6rem;
-}
-
-.btn-outline-prk {
-	background-color: $pb-color-three;
-	color: $pb-color-two;
-	margin: 1rem 0rem 1rem 0rem;
-	width: 150px;
-	padding: 10px;
-}
-.btn-outline-prk:hover {
-	background-color: $pb-color-one;
-	color: $pb-color-four
 }
 
 @media (max-width: 1100px) {
@@ -123,8 +105,8 @@
 		h2 {
 			text-align: center
 		}
-		#title-show {
-			padding: 2rem 0rem 2rem 0rem;
+		.title-show {
+			padding: 5rem 0rem 2rem 0rem;
 		}
 		#img_show {
 			width: 100%;

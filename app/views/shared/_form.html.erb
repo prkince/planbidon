@@ -17,6 +17,8 @@
     <%= f.input :transport, :as => :text %>
     <%= f.input :photos, :required => true, label: "Photos (3 liens mini): Exemple: lien_1,lien_2,lien_3 sans espaces", :as => :text %>
     <%= f.input :relive_id, label: 'Lien Relive video (comme cloudinary)', :as => :text %>
+    <%= f.input :gpx, label: 'Lien fichier gpx (comme cloudinary)', :as => :text %>
+    <%= f.input :tcx, label: 'Lien fichier tcx (comme cloudinary)', :as => :text %>
     <div class= "hidden">
       <%= f.input :nickname, :hint => 'Leave this field blank!' %>
     </div>
