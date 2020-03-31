@@ -43,6 +43,7 @@ class ParcoursController < ApplicationController
   def create
     @parcour = Parcour.new(parcour_params)
     @parcour.save
+    redirect_to parcours_path
   end
 
   def edit
@@ -68,7 +69,8 @@ class ParcoursController < ApplicationController
     params.require(:parcour).permit(
       :titre, :distance, :duree, :denivele, :difficulte, :description, 
       :strava_id, :athlete_id, :map_id, :map_start_id, :synopsis, 
-      :tinder_spot, :se_cultiver, :se_ravitailler, :transport, :photos, :relive_id
+      :tinder_spot, :se_cultiver, :se_ravitailler, :transport, :photos, :relive_id,
+      :gpx, :tcx
       )
   end
 end

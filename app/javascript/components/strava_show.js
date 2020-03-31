@@ -44,7 +44,6 @@ const stravaShow = () => {
             subdomains: 'abcd',
         }).addTo(map);
         var coordinates = L.Polyline.fromEncoded(object.map_id).getLatLngs();
-
         L.polyline(
           coordinates,
           {
