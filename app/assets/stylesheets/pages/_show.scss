@@ -23,6 +23,7 @@
   	color: white;
 	#master-title-show {
 		text-decoration: none;
+		text-shadow: 1px 0px 1px $pb-color-one;
 		a {
 			position: absolute;
 			top: 60%;
@@ -34,7 +35,8 @@
 			color: $pb-color-one
 		}
 		a:hover {
-			color: $pb-color-two
+			color: $pb-color-two;
+			text-shadow: 1px 0px 1px $pb-color-two;
 		}
 	}
 }
