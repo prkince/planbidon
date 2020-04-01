@@ -44,7 +44,7 @@ const stravaAllParcours = () => {
         subdomains: 'abcd',
     }).addTo(map);
 
-    let colorsArray = ['#4d089a', '#323edd', '#dc2ade', '#e8f044', '#f35588', '#05dfd7', '#a3f7bf', '#ffac41', '#f76a8c', '#ffffff', '#fbcffc', '#05dfd7','#e8f044'];
+    let colorsArray = ['#4d089a', '#323edd', '#dc2ade', '#e8f044', '#f35588', '#05dfd7', '#a3f7bf', '#ffac41', '#f76a8c', '#400082', '#fbcffc', '#05dfd7','#e8f044'];
     arrayMapIds.forEach((mapId, index)=> {
         var coordinates = L.Polyline.fromEncoded(mapId).getLatLngs();
         L.polyline(
